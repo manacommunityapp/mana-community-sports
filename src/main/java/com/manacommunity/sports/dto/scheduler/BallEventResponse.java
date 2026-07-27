@@ -1,0 +1,32 @@
+package com.manacommunity.sports.dto.scheduler;
+
+public record BallEventResponse(
+    Long id,
+    Long matchId,
+    Integer inningsNumber,
+    Integer overNumber,
+    Integer ballNumber,
+    Integer deliveryNumber,
+    Integer runsScored,
+    Boolean isBoundary,
+    Boolean isSix,
+    String extrasType,
+    Integer extrasRuns,
+    Boolean isWicket,
+    String dismissalType,
+    Long dismissedPlayerId,
+    String dismissedPlayerName,
+    Long fielderId,
+    String fielderName,
+    Long batsmanId,
+    String batsmanName,
+    Long nonStrikerId,
+    String nonStrikerName,
+    Long bowlerId,
+    String bowlerName,
+    Integer totalRuns,
+    Integer totalWickets,
+    String totalOvers,
+    String commentary,
+    String timestamp
+) {}

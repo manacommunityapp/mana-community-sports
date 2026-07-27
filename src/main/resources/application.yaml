@@ -1,0 +1,85 @@
+logging:
+  file:
+    name: logs/mana-sports.log
+
+spring:
+  application:
+    name: mana-community-sports
+
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE:5MB}
+      max-request-size: ${MAX_REQUEST_SIZE:6MB}
+
+server:
+  port: ${SERVER_PORT:8082}
+  tomcat:
+    max-http-form-post-size: 2MB
+    max-swallow-size: 2MB
+  server-header: ""
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-exception: false
+    include-binding-errors: never
+    whitelabel:
+      enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  health:
+    mail:
+      enabled: false
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+app:
+  mail:
+    enabled: ${APP_MAIL_ENABLED:true}
+    from: ${APP_MAIL_FROM:no-reply@manacommunity.app}
+    from-name: ${APP_MAIL_FROM_NAME:Mana Community}
+    base-url: ${APP_MAIL_BASE_URL:http://localhost:5173}
+    match-reminder-lead-minutes: ${APP_MAIL_MATCH_REMINDER_LEAD:30}
+    recipient-mode: ${APP_MAIL_RECIPIENT_MODE:REDIRECT}
+    default-recipient: ${APP_MAIL_DEFAULT_RECIPIENT:manacommunityapp@gmail.com}
+
+  sms:
+    enabled: ${SMS_ENABLED:false}
+    account-sid: ${TWILIO_ACCOUNT_SID:}
+    auth-token: ${TWILIO_AUTH_TOKEN:}
+    from-number: ${TWILIO_FROM_NUMBER:}
+    whatsapp-from: ${TWILIO_WHATSAPP_FROM:}
+    default-country-code: ${SMS_DEFAULT_COUNTRY_CODE:+91}
+
+  digest:
+    cron: ${DIGEST_CRON:0 0 7 * * MON}
+
+  security:
+    jwt:
+      secret: ${JWT_SECRET:dev-only-insecure-secret-change-me-0123456789abcdef}
+      expiration-ms: ${JWT_EXPIRATION_MS:900000}
+      refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}
+      issuer: ${JWT_ISSUER:mana-community}
+    rate-limit:
+      enabled: ${RATE_LIMIT_ENABLED:true}
+      requests-per-minute: ${RATE_LIMIT_RPM:300}
+      trust-forwarded-header: ${RATE_LIMIT_TRUST_XFF:false}
+    registration:
+      recaptcha:
+        enabled: ${RECAPTCHA_ENABLED:false}
+        secret: ${RECAPTCHA_SECRET:}
+        verify-url: ${RECAPTCHA_VERIFY_URL:https://www.google.com/recaptcha/api/siteverify}
+      otp:
+        enabled: ${REGISTRATION_OTP_ENABLED:false}
+        length: ${REGISTRATION_OTP_LENGTH:6}
+        ttl-minutes: ${REGISTRATION_OTP_TTL_MINUTES:10}
+        max-sends-per-hour: ${REGISTRATION_OTP_MAX_SENDS:3}
+        max-verify-attempts: ${REGISTRATION_OTP_MAX_ATTEMPTS:3}
+        verified-window-minutes: ${REGISTRATION_OTP_VERIFIED_WINDOW:30}

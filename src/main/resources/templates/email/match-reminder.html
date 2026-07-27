@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title th:text="${appName} + ' — Match reminder'">Match reminder</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f5f7;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1f2933;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f5f7;padding:24px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#dc2626;padding:28px 32px;">
+              <span style="color:#ffffff;font-size:20px;font-weight:700;" th:text="${appName}">Mana Community</span>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px;">
+              <div style="font-size:40px;line-height:1;margin-bottom:8px;">⏰</div>
+              <h1 style="margin:0 0 8px;font-size:22px;color:#111827;">Your match starts soon</h1>
+              <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#4b5563;">
+                Hi <strong th:text="${recipientName}">Player</strong>, this is a reminder that your
+                <strong th:text="${roundName}">match</strong> in <strong th:text="${tournamentName}">the tournament</strong>
+                begins in about <strong th:text="${minutesUntilStart}">30</strong> minutes. Please be at the venue and ready.
+              </p>
+
+              <!-- Match card -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;margin-bottom:24px;">
+                <tr>
+                  <td style="padding:18px 20px;text-align:center;">
+                    <div style="font-size:16px;font-weight:700;color:#111827;">
+                      <span th:text="${homeTeam}">Home</span>
+                      <span style="color:#dc2626;padding:0 8px;">vs</span>
+                      <span th:text="${awayTeam}">Away</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px;">
+                <tr><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Date</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;" th:text="${matchDate}">TBA</td></tr>
+                <tr><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Start time</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;font-weight:600;" th:text="${matchTime}">TBA</td></tr>
+                <tr><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Venue</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;" th:text="${venueName}">TBA</td></tr>
+                <tr th:if="${courtName != null and !courtName.isEmpty()}"><td style="padding:8px 0;color:#6b7280;font-size:13px;">Court</td><td style="padding:8px 0;font-size:14px;text-align:right;" th:text="${courtName}">Court 1</td></tr>
+              </table>
+
+              <a th:href="${actionUrl}" href="#" style="display:inline-block;background-color:#dc2626;color:#ffffff;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;">View match details</a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:24px 32px;background-color:#f9fafb;border-top:1px solid #eef0f2;">
+              <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.5;">
+                You're receiving this because you have an upcoming match in <span th:text="${tournamentName}">the tournament</span>.<br/>
+                &copy; <span th:text="${year}">2026</span> <span th:text="${appName}">Mana Community</span>. This is an automated message — please do not reply.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

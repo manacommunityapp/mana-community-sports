@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title th:text="${appName} + ' — Registration Open'">Registration Open</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f5f7;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1f2933;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f5f7;padding:24px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+
+          <!-- Banner image (optional) -->
+          <tr th:if="${bannerImage != null and !bannerImage.isEmpty()}">
+            <td style="padding:0;line-height:0;">
+              <img th:src="${bannerImage}" alt="Tournament banner" style="width:100%;max-height:220px;object-fit:cover;display:block;" />
+            </td>
+          </tr>
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#059669;padding:28px 32px;">
+              <span style="color:#ffffff;font-size:20px;font-weight:700;" th:text="${appName}">Mana Community</span>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px;">
+              <div style="font-size:40px;line-height:1;margin-bottom:8px;">🏆</div>
+              <h1 style="margin:0 0 8px;font-size:22px;color:#111827;">Registration is now open!</h1>
+              <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#4b5563;">
+                Hi <strong th:text="${recipientName}">Member</strong>,
+                <strong th:text="${tournamentName}">the tournament</strong> is now accepting registrations.
+                Secure your spot before it fills up!
+              </p>
+
+              <!-- Custom message from admin -->
+              <div th:if="${customMessage != null and !customMessage.isEmpty()}" style="background-color:#f0fdf4;border-left:4px solid #059669;padding:12px 16px;margin-bottom:20px;border-radius:0 8px 8px 0;">
+                <p style="margin:0;font-size:14px;line-height:1.6;color:#374151;" th:text="${customMessage}">Admin message</p>
+              </div>
+
+              <!-- Tournament details -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px;">
+                <tr><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Tournament</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;font-weight:600;" th:text="${tournamentName}">Summer Cup</td></tr>
+                <tr th:if="${eventDate != null}"><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Event Date</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;" th:text="${eventDate}">TBA</td></tr>
+                <tr th:if="${registrationDeadline != null}"><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Register by</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;color:#dc2626;font-weight:600;" th:text="${registrationDeadline}">TBA</td></tr>
+                <tr th:if="${venueName != null}"><td style="padding:8px 0;border-bottom:1px solid #eef0f2;color:#6b7280;font-size:13px;">Venue</td><td style="padding:8px 0;border-bottom:1px solid #eef0f2;font-size:14px;text-align:right;" th:text="${venueName}">TBA</td></tr>
+                <tr th:if="${contactName != null}"><td style="padding:8px 0;color:#6b7280;font-size:13px;">Contact</td><td style="padding:8px 0;font-size:14px;text-align:right;" th:text="${contactName} + (contactNumber != null ? ' — ' + contactNumber : '')">Organiser</td></tr>
+              </table>
+
+              <!-- Sports Events -->
+              <div th:if="${sportsEvents != null and !sportsEvents.isEmpty()}">
+                <h2 style="margin:0 0 12px;font-size:15px;color:#111827;font-weight:700;">Sports Events Included</h2>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+                  <!-- Table header -->
+                  <tr style="background-color:#f9fafb;">
+                    <td style="padding:10px 12px;font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #e5e7eb;">Sport</td>
+                    <td style="padding:10px 12px;font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #e5e7eb;">Category</td>
+                    <td style="padding:10px 12px;font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #e5e7eb;text-align:center;">Age</td>
+                    <td style="padding:10px 12px;font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #e5e7eb;text-align:center;">Gender</td>
+                  </tr>
+                  <!-- Event rows -->
+                  <tr th:each="ev,iterStat : ${sportsEvents}" th:style="${iterStat.odd ? 'background-color:#ffffff' : 'background-color:#f9fafb'}">
+                    <td style="padding:10px 12px;font-size:13px;color:#1f2937;font-weight:600;border-bottom:1px solid #f3f4f6;">
+                      <span th:if="${ev.icon != null}" th:text="${ev.icon + ' '}" style="font-size:15px;"></span>
+                      <span th:text="${ev.sportName}">Badminton</span>
+                    </td>
+                    <td style="padding:10px 12px;font-size:13px;color:#4b5563;border-bottom:1px solid #f3f4f6;" th:text="${ev.eventName}">Men's Singles</td>
+                    <td style="padding:10px 12px;font-size:13px;color:#4b5563;border-bottom:1px solid #f3f4f6;text-align:center;" th:text="${ev.ageRange}">18-45</td>
+                    <td style="padding:10px 12px;font-size:13px;color:#4b5563;border-bottom:1px solid #f3f4f6;text-align:center;">
+                      <span th:text="${ev.gender}" style="display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;background-color:#e0e7ff;color:#4338ca;">All</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <a th:href="${actionUrl}" href="#" style="display:inline-block;background-color:#059669;color:#ffffff;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;">Register Now</a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:24px 32px;background-color:#f9fafb;border-top:1px solid #eef0f2;">
+              <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.5;">
+                You're receiving this because you're a member of the community hosting this tournament.<br/>
+                &copy; <span th:text="${year}">2026</span> <span th:text="${appName}">Mana Community</span>. This is an automated message — please do not reply.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
