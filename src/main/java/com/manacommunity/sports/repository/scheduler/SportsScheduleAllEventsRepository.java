@@ -1,5 +1,7 @@
 package com.manacommunity.sports.repository.scheduler;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.scheduler.MatchStatus;
 import com.manacommunity.sports.model.scheduler.TournamentMatch;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,3 +20,5 @@ public interface SportsScheduleAllEventsRepository extends JpaRepository<Tournam
 
     long countByStatus(MatchStatus status);
 }
+
+

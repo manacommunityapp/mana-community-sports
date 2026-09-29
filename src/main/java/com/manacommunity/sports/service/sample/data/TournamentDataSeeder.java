@@ -1,5 +1,7 @@
 package com.manacommunity.sports.service.sample.data;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.Tournament;
 import com.manacommunity.sports.repository.TournamentRepository;
 import lombok.RequiredArgsConstructor;
@@ -59,3 +61,5 @@ public class TournamentDataSeeder {
         log.info("✓ Tournament table seeded: {} (id={})", TOURNAMENT_NAME, tournament.getId());
     }
 }
+
+

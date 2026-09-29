@@ -1,5 +1,8 @@
 package com.manacommunity.sports.constants;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Role;
 import java.util.List;
 import java.util.stream.Stream;
 import java.util.Collections;
@@ -332,3 +335,5 @@ public final class PermissionConstants {
             VIEW_EVENTS
     );
 }
+
+

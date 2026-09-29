@@ -1,5 +1,6 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -14,3 +15,4 @@ public record MenuItemRequest(
     @Size(max = 100) String permissionKey,
     Long communityId
 ) {}
+

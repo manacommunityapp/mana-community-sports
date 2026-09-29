@@ -1,5 +1,7 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -13,3 +15,5 @@ public record MenuRolePermissionRequest(
     Boolean canUpdate,
     Boolean canDelete
 ) {}
+
+

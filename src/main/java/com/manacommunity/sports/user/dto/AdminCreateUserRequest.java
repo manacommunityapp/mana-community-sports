@@ -1,5 +1,8 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -9,7 +12,7 @@ import java.time.LocalDate;
 
 /**
  * Payload for the admin "Create New User" page. Mirrors the fields the form
- * collects; the service maps them onto {@link com.manacommunity.sports.user.model.AppUser}
+ * collects; the service maps them onto {@link com.manacommunity.common.user.model.AppUser}
  * (first+last name -> fullName, UI role -> backend role, gender label -> code, etc.).
  *
  * A community must be identifiable either by {@code communityId} (preferred) or
@@ -58,3 +61,6 @@ public class AdminCreateUserRequest {
     private Boolean prefWhatsapp;
     private Boolean prefPush;
 }
+
+
+

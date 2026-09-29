@@ -1,5 +1,7 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 /**
  * Response DTO — one row of the role × menu permission matrix.
  */
@@ -15,3 +17,5 @@ public record MenuRolePermissionResponse(
     Boolean canUpdate,
     Boolean canDelete
 ) {}
+
+

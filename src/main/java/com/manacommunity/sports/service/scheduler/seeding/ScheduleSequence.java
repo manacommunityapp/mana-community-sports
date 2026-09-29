@@ -1,5 +1,7 @@
 package com.manacommunity.sports.service.scheduler.seeding;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 /**
  * The "Choose Your Schedule Sequence" option selected in the UI. Each value maps
  * to a dedicated {@link SeedingStrategy} that pairs players differently:
@@ -35,3 +37,5 @@ public enum ScheduleSequence {
         };
     }
 }
+
+

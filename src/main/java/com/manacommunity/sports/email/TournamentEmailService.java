@@ -1,9 +1,12 @@
 package com.manacommunity.sports.email;
 
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.email.*;
 import com.manacommunity.sports.repository.TournamentRepository;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import com.manacommunity.sports.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +40,7 @@ public class TournamentEmailService {
     @Transactional(readOnly = true)
     public TournamentAnnouncementEmailDTO getTournamentAnnouncement(Long tournamentId) {
         Tournament tournament = tournamentRepository.findById(tournamentId)
-                .orElseThrow(() -> new com.manacommunity.sports.exception.ResourceNotFoundException("Tournament", tournamentId));
+                .orElseThrow(() -> new com.manacommunity.common.exception.ResourceNotFoundException("Tournament", tournamentId));
         return buildTournamentAnnouncementDTO(tournament, null);
     }
 
@@ -258,3 +261,7 @@ public class TournamentEmailService {
         log.info("Queued {} tournament emails for '{}' using template {}", batch.size(), tournament.getName(), template.name());
     }
 }
+
+
+
+

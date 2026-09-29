@@ -1,6 +1,8 @@
 package com.manacommunity.sports.email;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.model.scheduler.TournamentMatch;
 import com.manacommunity.sports.service.NotificationManagementService;
@@ -82,3 +84,5 @@ public class MatchReminderEmailService {
         }
     }
 }
+
+

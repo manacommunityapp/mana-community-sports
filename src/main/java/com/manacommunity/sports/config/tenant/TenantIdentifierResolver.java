@@ -1,5 +1,6 @@
 package com.manacommunity.sports.config.tenant;
 
+import com.manacommunity.common.enums.*;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.springframework.boot.hibernate.autoconfigure.HibernatePropertiesCustomizer;
@@ -31,3 +32,4 @@ public class TenantIdentifierResolver
         hibernateProperties.put(AvailableSettings.MULTI_TENANT_IDENTIFIER_RESOLVER, this);
     }
 }
+

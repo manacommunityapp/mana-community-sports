@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service.impl;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.TournamentRequest;
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.repository.TournamentRepository;
@@ -63,7 +64,7 @@ public class TournamentServiceImpl implements TournamentService {
     @Override
     public Tournament getTournamentById(Long id) {
         return tournamentRepo.findById(id)
-                .orElseThrow(() -> new com.manacommunity.sports.exception.ResourceNotFoundException("Tournament", id));
+                .orElseThrow(() -> new com.manacommunity.common.exception.ResourceNotFoundException("Tournament", id));
     }
 
     @Override
@@ -121,7 +122,7 @@ public class TournamentServiceImpl implements TournamentService {
         // Tournament here — doing so was the cause of tournaments duplicating on edit.
         Tournament tournament = tournamentRepo.findById(id)
                 .or(() -> tournamentRepo.findByEventId(id))
-                .orElseThrow(() -> new com.manacommunity.sports.exception.ResourceNotFoundException("Tournament", id));
+                .orElseThrow(() -> new com.manacommunity.common.exception.ResourceNotFoundException("Tournament", id));
         return applyTournamentFields(tournament, req, allowAdminChat);
     }
 
@@ -237,7 +238,7 @@ public class TournamentServiceImpl implements TournamentService {
         try {
             tournamentStatus = Tournament.EventStatus.valueOf(status);
         } catch (IllegalArgumentException e) {
-            throw new com.manacommunity.sports.exception.ManaCommunityException(
+            throw new com.manacommunity.common.exception.ManaCommunityException(
                     "Invalid event status: '" + status + "'. Valid values: DRAFT, REGISTRATION_OPEN, "
                     + "REGISTRATION_CLOSED, LIVE, COMPLETED, CANCELLED.",
                     org.springframework.http.HttpStatus.BAD_REQUEST, "INVALID_STATUS");
@@ -246,11 +247,11 @@ public class TournamentServiceImpl implements TournamentService {
         Tournament tournament = tournamentRepo.findById(id).orElse(null);
         if (tournament == null) {
             SportsEvent event = eventRepo.findById(id)
-                    .orElseThrow(() -> new com.manacommunity.sports.exception.ResourceNotFoundException(
+                    .orElseThrow(() -> new com.manacommunity.common.exception.ResourceNotFoundException(
                             "Tournament or Event", id));
             tournament = event.getTournament();
             if (tournament == null) {
-                throw new com.manacommunity.sports.exception.ManaCommunityException(
+                throw new com.manacommunity.common.exception.ManaCommunityException(
                         "Event " + id + " is not linked to a tournament.",
                         org.springframework.http.HttpStatus.BAD_REQUEST, "NO_TOURNAMENT");
             }
@@ -349,3 +350,6 @@ public class TournamentServiceImpl implements TournamentService {
         }
     }
 }
+
+
+

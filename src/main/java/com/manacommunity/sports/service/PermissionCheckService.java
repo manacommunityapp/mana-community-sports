@@ -1,12 +1,14 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 
 import static com.manacommunity.sports.constants.PermissionConstants.*;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.model.RolePermission;
-import com.manacommunity.sports.repository.RolePermissionRepository;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.model.RolePermission;
+import com.manacommunity.common.repository.RolePermissionRepository;
+import com.manacommunity.common.user.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
@@ -82,3 +84,6 @@ public class PermissionCheckService {
                 .collect(Collectors.toSet());
     }
 }
+
+
+

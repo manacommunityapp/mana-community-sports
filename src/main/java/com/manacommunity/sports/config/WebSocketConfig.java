@@ -1,6 +1,7 @@
 package com.manacommunity.sports.config;
 
-import com.manacommunity.sports.security.JwtTokenProvider;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.security.JwtTokenProvider;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -115,3 +116,5 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         }
     }
 }
+
+

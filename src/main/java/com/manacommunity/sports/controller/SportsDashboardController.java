@@ -1,5 +1,6 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.NotificationResponse;
 import com.manacommunity.sports.dto.dashboard.SportsDashboardResponse.MyRegistration;
 import com.manacommunity.sports.dto.dashboard.SportsDashboardResponse.Stats;
@@ -8,8 +9,8 @@ import com.manacommunity.sports.dto.dashboard.SportsDashboardResponse.UpcomingEv
 import com.manacommunity.sports.service.NotificationManagementService;
 import com.manacommunity.sports.service.PermissionCheckService;
 import com.manacommunity.sports.service.SportsDashboardService;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -81,3 +82,5 @@ public class SportsDashboardController {
         return ResponseEntity.ok(page.getContent());
     }
 }
+
+

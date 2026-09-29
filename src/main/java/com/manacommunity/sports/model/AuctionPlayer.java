@@ -1,6 +1,7 @@
 package com.manacommunity.sports.model;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.user.model.AppUser;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -63,3 +64,5 @@ public class AuctionPlayer {
 
     public enum PlayerStatus { QUEUED, SELLING, SOLD, PASSED, RETAINED }
 }
+
+

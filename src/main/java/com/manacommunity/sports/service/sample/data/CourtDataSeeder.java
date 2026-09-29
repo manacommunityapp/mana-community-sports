@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service.sample.data;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.Court;
 import com.manacommunity.sports.model.Venue;
 import com.manacommunity.sports.repository.CourtRepository;
@@ -46,3 +47,4 @@ public class CourtDataSeeder {
         log.info("✓ Court table seeded: {} new court(s) for {}", created, arena.getName());
     }
 }
+

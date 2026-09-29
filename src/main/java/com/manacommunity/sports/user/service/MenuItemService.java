@@ -1,20 +1,21 @@
 package com.manacommunity.sports.user.service;
 
-import com.manacommunity.sports.model.Role;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 
 import com.manacommunity.sports.user.dto.MenuItemRequest;
 import com.manacommunity.sports.user.dto.MenuItemResponse;
 import com.manacommunity.sports.user.dto.MenuRolePermissionResponse;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
-import com.manacommunity.sports.model.Community;
-import com.manacommunity.sports.user.model.MenuItem;
-import com.manacommunity.sports.user.model.MenuRolePermission;
+import com.manacommunity.common.exception.ResourceNotFoundException;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.user.model.MenuItem;
+import com.manacommunity.common.user.model.MenuRolePermission;
 import com.manacommunity.sports.repository.CommunityRepository;
-import com.manacommunity.sports.user.repository.MenuItemRepository;
-import com.manacommunity.sports.user.repository.MenuRolePermissionRepository;
-import com.manacommunity.sports.security.AuditAction;
-import com.manacommunity.sports.security.AuditModule;
-import com.manacommunity.sports.security.AuditService;
+import com.manacommunity.common.user.repository.MenuItemRepository;
+import com.manacommunity.common.user.repository.MenuRolePermissionRepository;
+import com.manacommunity.common.enums.AuditAction;
+import com.manacommunity.common.enums.AuditModule;
+import com.manacommunity.common.security.AuditService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -111,12 +112,12 @@ public class MenuItemService {
 
         MenuItem item = MenuItem.builder()
                 .menuKey(req.menuKey())
-                .label(req.label())
+                .menuLabel(req.label())
                 .icon(req.icon())
-                .routePath(req.routePath())
+                .route(req.routePath())
                 .sortOrder(req.sortOrder() != null ? req.sortOrder() : 0)
                 .isActive(req.isActive() != null ? req.isActive() : true)
-                .permissionKey(req.permissionKey())
+                .menuKey(req.permissionKey() != null ? req.permissionKey() : req.menuKey())
                 .build();
 
         if (req.parentId() != null) {
@@ -270,3 +271,6 @@ public class MenuItemService {
         List<MenuItemWithPermissionsResponse> children
     ) {}
 }
+
+
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.schedule;
 
+import com.manacommunity.common.enums.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -52,3 +53,4 @@ public final class SportsScheduleResponse {
             String proposedTeamName
     ) {}
 }
+

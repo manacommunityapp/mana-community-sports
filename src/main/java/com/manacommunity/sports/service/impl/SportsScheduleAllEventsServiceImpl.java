@@ -1,10 +1,11 @@
 package com.manacommunity.sports.service.impl;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.SportsScheduleStatsResponse;
 import com.manacommunity.sports.model.scheduler.MatchStatus;
 import com.manacommunity.sports.repository.scheduler.SportsScheduleAllEventsRepository;
 import com.manacommunity.sports.service.scheduler.SportsScheduleAllEventsService;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,3 +60,5 @@ public class SportsScheduleAllEventsServiceImpl implements SportsScheduleAllEven
         return isSuperAdmin ? matchRepo.countByStatus(MatchStatus.COMPLETED) : (communityId != null ? matchRepo.countByCommunityIdAndStatus(communityId, MatchStatus.COMPLETED) : 0L);
     }
 }
+
+

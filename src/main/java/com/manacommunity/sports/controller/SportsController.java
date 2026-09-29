@@ -1,8 +1,11 @@
 package com.manacommunity.sports.controller;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.user.model.AppUser;
 
-import com.manacommunity.sports.dto.PagedResponse;
+import com.manacommunity.common.dto.PagedResponse;
 import com.manacommunity.sports.dto.PlayerCategoryRequest;
 import com.manacommunity.sports.dto.RegistrationRequest;
 import com.manacommunity.sports.dto.SponsorDto;
@@ -12,11 +15,11 @@ import com.manacommunity.sports.dto.SportsRegistrationResponse;
 import com.manacommunity.sports.dto.SportsMetaRequest;
 import com.manacommunity.sports.dto.SportsMetaResponse;
 import com.manacommunity.sports.dto.TournamentRequest;
-import com.manacommunity.sports.exception.UnauthorizedActionException;
+import com.manacommunity.common.exception.UnauthorizedActionException;
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.repository.PlayerCategoryRepository;
 import com.manacommunity.sports.repository.SportMetaRepository;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.user.service.LoggedInUserService.ResolvedUser;
 import com.manacommunity.sports.service.SportsEventService;
@@ -98,7 +101,7 @@ public class SportsController {
             @AuthenticationPrincipal UserPrincipal principal) {
         permissionCheckService.requireAnyPermission(principal, CREATE_EDIT_SPORTS_MAIN);
         SportsMeta sport = sportMetaRepo.findById(id)
-                .orElseThrow(() -> new com.manacommunity.sports.exception.ResourceNotFoundException("Sport", id));
+                .orElseThrow(() -> new com.manacommunity.common.exception.ResourceNotFoundException("Sport", id));
         ResolvedUser ctx = loggedInUserService.resolveContext(principal);
         if (sport.getCommunityId() == null) {
             if (!ctx.superAdmin()) {
@@ -631,3 +634,6 @@ public class SportsController {
         );
     }
 }
+
+
+

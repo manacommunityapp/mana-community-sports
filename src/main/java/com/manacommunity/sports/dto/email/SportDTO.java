@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SportDTO {
+    private String name;
     private String sportName;
     private String icon;
+    private Integer eventCount;
 }

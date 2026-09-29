@@ -1,15 +1,18 @@
 package com.manacommunity.sports.service.impl;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.model.Community;
 
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.repository.AppUserRepository;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 
 import com.manacommunity.sports.dto.SportsEventRequest;
 import com.manacommunity.sports.dto.NotificationScheduleDto;
 import com.manacommunity.sports.dto.RegistrationRequest;
 import com.manacommunity.sports.dto.SponsorDto;
+import com.manacommunity.common.exception.*;
 import com.manacommunity.sports.exception.*;
 import com.manacommunity.sports.email.RegistrationEmailService;
 import com.manacommunity.sports.model.*;
@@ -51,7 +54,7 @@ public class SportsEventServiceImpl implements SportsEventService {
     private final TournamentRepository tournamentRepo;
     private final RegistrationEmailService registrationEmailService;
     private final NotificationManagementService notificationService;
-    private final com.manacommunity.sports.service.RecaptchaService recaptchaService;
+    private final com.manacommunity.common.security.RecaptchaService recaptchaService;
     private final com.manacommunity.sports.service.OtpService otpService;
     private final ContactRepository contactRepository;
 
@@ -844,3 +847,6 @@ public class SportsEventServiceImpl implements SportsEventService {
         return ids.stream().map(String::valueOf).collect(java.util.stream.Collectors.joining(","));
     }
 }
+
+
+

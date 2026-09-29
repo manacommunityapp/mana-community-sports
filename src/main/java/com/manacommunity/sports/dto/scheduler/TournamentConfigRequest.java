@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -24,6 +25,10 @@ public record TournamentConfigRequest(
     // Match options
     Boolean  thirdPlaceMatch,
     Boolean  hasSeeding,
+    Boolean  differentFlatEnforced,
+    Boolean  differentTowerEnforced,
+    Boolean  ratingBalancingEnabled,
+    Integer  minRestMinutesBetweenMatches,
 
     // Schedule
     @NotNull LocalDate startDate,
@@ -31,9 +36,11 @@ public record TournamentConfigRequest(
     Integer  matchDurationMinutes,
     Integer  breakBetweenMatchesMinutes,
     Long     venueId,
+    List<Long> courtIds,
 
     // Points
     Integer  pointsForWin,
     Integer  pointsForDraw,
     Integer  pointsForLoss
 ) {}
+

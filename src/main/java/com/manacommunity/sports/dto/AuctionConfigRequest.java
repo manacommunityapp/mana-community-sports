@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.constraints.*;
 
 public record AuctionConfigRequest(
@@ -25,3 +26,4 @@ public record AuctionConfigRequest(
     java.util.List<String> categories,          // ["BATSMEN","BOWLERS","ALL_ROUNDERS"]
     java.util.List<String> committeeMembers     // ["Ramesh","Sandeep","Chetan","Sunil"]
 ) {}
+

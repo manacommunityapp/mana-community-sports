@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -24,3 +25,4 @@ public class TournamentGroup {
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<GroupTeamStanding> standings;
 }
+

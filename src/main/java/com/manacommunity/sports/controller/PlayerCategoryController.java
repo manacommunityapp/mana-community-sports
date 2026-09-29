@@ -1,10 +1,12 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import com.manacommunity.sports.dto.PlayerCategoryRequest;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.service.PlayerCategoryService;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.PermissionCheckService;
 import lombok.RequiredArgsConstructor;
@@ -80,3 +82,6 @@ public class PlayerCategoryController {
         return ResponseEntity.noContent().build();
     }
 }
+
+
+

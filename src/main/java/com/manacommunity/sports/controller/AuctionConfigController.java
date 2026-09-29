@@ -1,10 +1,12 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.AuctionConfigRequest;
 import com.manacommunity.sports.dto.AuctionConfigResponse;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.AuctionConfig;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.service.AuctionCsvService;
 import com.manacommunity.sports.service.AuctionService;
 import com.manacommunity.sports.user.service.LoggedInUserService;
@@ -156,3 +158,6 @@ public class AuctionConfigController {
         return ResponseEntity.ok(auctionService.getConfirmedRegistrationCount(id));
     }
 }
+
+
+

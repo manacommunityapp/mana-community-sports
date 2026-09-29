@@ -1,6 +1,7 @@
 package com.manacommunity.sports.service.sample.data;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.repository.PlayerCategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -83,3 +84,5 @@ public class PlayerCategorySeeder {
                         .build()));
     }
 }
+
+

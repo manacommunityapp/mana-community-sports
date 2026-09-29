@@ -1,5 +1,7 @@
 package com.manacommunity.sports.security;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -228,3 +230,5 @@ public final class PasswordStrengthEvaluator {
         return false;
     }
 }
+
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionTeam;
 import jakarta.persistence.*;
 import lombok.*;
@@ -49,3 +50,4 @@ public class MatchInnings {
 
     @PrePersist void onCreate() { createdAt = LocalDateTime.now(); }
 }
+

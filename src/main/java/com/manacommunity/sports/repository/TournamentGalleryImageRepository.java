@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.TournamentGalleryImage;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -9,3 +10,4 @@ public interface TournamentGalleryImageRepository extends JpaRepository<Tourname
 
     List<TournamentGalleryImage> findByTournamentIdOrderBySortOrderAscIdAsc(Long tournamentId);
 }
+

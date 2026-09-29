@@ -1,5 +1,7 @@
 package com.manacommunity.sports.email;
 
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.enums.*;
 import java.util.List;
 
 /**
@@ -15,3 +17,5 @@ public interface EmailService {
     /** Sends a batch of messages, each independently (one failure does not abort the rest). */
     void sendAll(List<EmailMessage> messages);
 }
+
+

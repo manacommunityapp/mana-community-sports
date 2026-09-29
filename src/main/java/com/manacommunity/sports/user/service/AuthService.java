@@ -1,5 +1,6 @@
 package com.manacommunity.sports.user.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.user.dto.AuthResponse;
 import com.manacommunity.sports.user.dto.KycRequest;
 import com.manacommunity.sports.user.dto.LoginRequest;
@@ -17,3 +18,4 @@ public interface AuthService {
 
     boolean submitKyc(Long userId, KycRequest req);
 }
+

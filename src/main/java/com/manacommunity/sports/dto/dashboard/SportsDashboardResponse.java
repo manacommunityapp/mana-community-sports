@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.dashboard;
 
+import com.manacommunity.common.enums.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -88,3 +89,4 @@ public record SportsDashboardResponse(
             Boolean captainConfirmation
     ) {}
 }
+

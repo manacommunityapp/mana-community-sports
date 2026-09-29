@@ -1,5 +1,6 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
 import java.util.List;
 
 public record MenuItemResponse(
@@ -14,3 +15,4 @@ public record MenuItemResponse(
     String permissionKey,
     List<MenuItemResponse> children
 ) {}
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 public enum MatchStatus {
     DRAFT,        // saved as draft — visible only to the organiser
     PUBLISHED,    // published — visible to all participants
@@ -11,3 +12,4 @@ public enum MatchStatus {
     BYE,          // auto-advance when team count is not a power of 2
     AUTO_ADVANCED // BYE match whose seeded player was auto-progressed to the next round
 }
+

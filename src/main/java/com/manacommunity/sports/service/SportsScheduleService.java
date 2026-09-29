@@ -1,11 +1,12 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.schedule.SportsScheduleResponse.EventListItem;
 import com.manacommunity.sports.dto.schedule.SportsScheduleResponse.RegistrationListItem;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.SportsEventRegistration;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -101,3 +102,5 @@ public class SportsScheduleService {
         return categories.iterator().next().getName();
     }
 }
+
+

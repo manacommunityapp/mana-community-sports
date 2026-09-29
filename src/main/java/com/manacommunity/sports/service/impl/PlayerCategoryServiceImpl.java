@@ -1,12 +1,14 @@
 package com.manacommunity.sports.service.impl;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.PlayerCategoryRequest;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
+import com.manacommunity.common.exception.ResourceNotFoundException;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.repository.CommunityRepository;
 import com.manacommunity.sports.repository.PlayerCategoryRepository;
 import com.manacommunity.sports.service.PlayerCategoryService;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,3 +86,6 @@ public class PlayerCategoryServiceImpl implements PlayerCategoryService {
         categoryRepo.deleteById(id);
     }
 }
+
+
+

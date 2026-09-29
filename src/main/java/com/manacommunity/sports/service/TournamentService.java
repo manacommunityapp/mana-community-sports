@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.TournamentRequest;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.Tournament;
@@ -15,3 +16,4 @@ public interface TournamentService {
     Tournament updateTournamentRecord(Long id, TournamentRequest req, Boolean allowAdminChat);
     Tournament updateStatus(Long id, String status);
 }
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 public record PlayerWithBidResponse(
     Long    playerId,
     String  playerName,
@@ -15,3 +16,4 @@ public record PlayerWithBidResponse(
     int     queueOrder,
     String  status
 ) {}
+

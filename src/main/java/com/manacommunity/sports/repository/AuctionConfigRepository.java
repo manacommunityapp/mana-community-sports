@@ -1,5 +1,7 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.AuctionConfig;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -36,3 +38,5 @@ public interface AuctionConfigRepository extends JpaRepository<AuctionConfig, Lo
     Optional<AuctionConfig> findByEventId(Long eventId);
     boolean existsBySportIdAndSeasonName(Long sportId, String seasonName);
 }
+
+

@@ -1,6 +1,7 @@
 package com.manacommunity.sports.repository;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,3 +17,5 @@ public interface CommunityRepository extends JpaRepository<Community, Long> {
     List<Community> findByActiveTrueOrderByNameAsc();
     List<Community> findByActiveTrueAndTypeIgnoreCaseOrderByNameAsc(String type);
 }
+
+

@@ -1,14 +1,15 @@
 package com.manacommunity.sports.scheduler;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 
 import com.manacommunity.sports.ai.service.AiWebSocketPushService;
 import com.manacommunity.sports.email.EmailMessage;
 import com.manacommunity.sports.email.EmailProperties;
 import com.manacommunity.sports.email.EmailService;
 import com.manacommunity.sports.email.EmailSupport;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -228,3 +229,5 @@ public class WeeklyScheduleDigestJob {
             String teamA, String teamB, String venue, String court,
             String tournament, String sport) {}
 }
+
+

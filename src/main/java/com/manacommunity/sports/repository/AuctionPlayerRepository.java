@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionPlayer;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -51,3 +52,4 @@ public interface AuctionPlayerRepository extends JpaRepository<AuctionPlayer, Lo
     @EntityGraph(attributePaths = {"assignedTeam", "user"})
     List<AuctionPlayer> findByConfigIdAndStatusOrderByQueueOrderAsc(Long configId, AuctionPlayer.PlayerStatus status);
 }
+

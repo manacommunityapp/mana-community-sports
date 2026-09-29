@@ -1,13 +1,14 @@
 package com.manacommunity.sports.service.scheduler;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.repository.AppUserRepository;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 
 import com.manacommunity.sports.dto.scheduler.*;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
+import com.manacommunity.common.exception.ResourceNotFoundException;
 import com.manacommunity.sports.model.AuctionTeam;
 import com.manacommunity.sports.model.scheduler.*;
 import com.manacommunity.sports.repository.*;
@@ -74,6 +75,10 @@ public class MatchPersistenceService {
         config.setSwissRounds(req.swissRounds());
         config.setThirdPlaceMatch(Objects.requireNonNullElse(req.thirdPlaceMatch(), config.getThirdPlaceMatch()));
         config.setHasSeeding(Objects.requireNonNullElse(req.hasSeeding(), config.getHasSeeding()));
+        config.setDifferentFlatEnforced(Objects.requireNonNullElse(req.differentFlatEnforced(), config.getDifferentFlatEnforced()));
+        config.setDifferentTowerEnforced(Objects.requireNonNullElse(req.differentTowerEnforced(), config.getDifferentTowerEnforced()));
+        config.setRatingBalancingEnabled(Objects.requireNonNullElse(req.ratingBalancingEnabled(), config.getRatingBalancingEnabled()));
+        config.setMinRestMinutesBetweenMatches(Objects.requireNonNullElse(req.minRestMinutesBetweenMatches(), config.getMinRestMinutesBetweenMatches()));
         config.setStartDate(req.startDate());
         config.setEndDate(req.endDate());
         config.setMatchDurationMinutes(Objects.requireNonNullElse(req.matchDurationMinutes(), 90));
@@ -100,6 +105,8 @@ public class MatchPersistenceService {
             c.getEvent() != null ? c.getEvent().getName() : null,
             c.getTotalTeams(), c.getNumberOfGroups(), c.getTeamsPerGroup(),
             c.getTeamsAdvancingPerGroup(), c.getThirdPlaceMatch(), c.getHasSeeding(),
+            c.getDifferentFlatEnforced(), c.getDifferentTowerEnforced(),
+            c.getRatingBalancingEnabled(), c.getMinRestMinutesBetweenMatches(),
             c.getSwissRounds(), c.getStartDate(), c.getEndDate(),
             c.getMatchDurationMinutes(), c.getBreakBetweenMatchesMinutes(),
             c.getVenue() != null ? c.getVenue().getId() : null,
@@ -127,6 +134,10 @@ public class MatchPersistenceService {
             .swissRounds(req.swissRounds())
             .thirdPlaceMatch(Objects.requireNonNullElse(req.thirdPlaceMatch(), true))
             .hasSeeding(Objects.requireNonNullElse(req.hasSeeding(), false))
+            .differentFlatEnforced(Objects.requireNonNullElse(req.differentFlatEnforced(), true))
+            .differentTowerEnforced(Objects.requireNonNullElse(req.differentTowerEnforced(), true))
+            .ratingBalancingEnabled(Objects.requireNonNullElse(req.ratingBalancingEnabled(), true))
+            .minRestMinutesBetweenMatches(Objects.requireNonNullElse(req.minRestMinutesBetweenMatches(), 30))
             .startDate(req.startDate())
             .endDate(req.endDate())
             .matchDurationMinutes(Objects.requireNonNullElse(req.matchDurationMinutes(), 90))
@@ -399,3 +410,5 @@ public class MatchPersistenceService {
         return s == null ? "" : s.replace("\"", "'");
     }
 }
+
+

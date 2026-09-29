@@ -1,9 +1,10 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.dashboard.SportsAdminFormDataResponse;
 import com.manacommunity.sports.dto.dashboard.SportsAdminOverviewResponse;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.PermissionCheckService;
 import com.manacommunity.sports.service.SportsAdminService;
@@ -52,3 +53,5 @@ public class SportsAdminController {
         return ResponseEntity.ok(adminService.getFormData(user));
     }
 }
+
+

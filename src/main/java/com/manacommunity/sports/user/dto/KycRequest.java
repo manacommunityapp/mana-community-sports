@@ -1,5 +1,6 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.user.service.AuthService;
 
 import jakarta.validation.constraints.NotBlank;
@@ -140,3 +141,4 @@ public class KycRequest {
         DRIVING_LICENCE
     }
 }
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -77,3 +78,4 @@ public class SportsNotificationScheduler {
         updatedAt = LocalDateTime.now();
     }
 }
+

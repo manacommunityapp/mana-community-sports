@@ -1,5 +1,6 @@
 package com.manacommunity.sports.ai.service;
 
+import com.manacommunity.common.enums.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -102,3 +103,4 @@ public class AiWebSocketPushService {
         pushToUser(userId, event);
     }
 }
+

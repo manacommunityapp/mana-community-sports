@@ -1,5 +1,7 @@
 package com.manacommunity.sports.config.tenant;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -93,3 +95,5 @@ public class TenantSchemaService {
         return schemas;
     }
 }
+
+

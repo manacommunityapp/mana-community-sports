@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service.scheduler;
 
+import com.manacommunity.common.enums.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -67,3 +68,4 @@ public class TimeSlotAllocator {
         }
     }
 }
+

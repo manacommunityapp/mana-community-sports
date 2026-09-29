@@ -1,10 +1,11 @@
 package com.manacommunity.sports.service.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.scheduler.MatchDetailResponse;
 import com.manacommunity.sports.dto.scheduler.MatchDetailResponse.*;
 import com.manacommunity.sports.dto.scheduler.MatchResultDetailRequest;
 import com.manacommunity.sports.dto.scheduler.MatchResultRequest;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
+import com.manacommunity.common.exception.ResourceNotFoundException;
 import com.manacommunity.sports.model.AuctionPlayer;
 import com.manacommunity.sports.model.AuctionTeam;
 import com.manacommunity.sports.model.scheduler.*;
@@ -427,3 +428,5 @@ public class MatchResultService {
         }
     }
 }
+
+

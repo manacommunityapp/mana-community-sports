@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 public enum ResultType {
     WIN,
     TIE,
@@ -9,3 +10,4 @@ public enum ResultType {
     DLS,
     SUPER_OVER
 }
+

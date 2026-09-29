@@ -1,5 +1,7 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.SportsEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -65,3 +67,5 @@ public interface SportsEventRepository extends JpaRepository<SportsEvent, Long> 
 
     long countByCommunityIdAndTournamentRegistrationStatus(Long communityId, com.manacommunity.sports.model.Tournament.EventStatus registrationStatus);
 }
+
+

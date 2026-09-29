@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 public enum DismissalType {
     BOWLED,
     CAUGHT,
@@ -12,3 +13,4 @@ public enum DismissalType {
     RETIRED_OUT,
     NOT_OUT
 }
+

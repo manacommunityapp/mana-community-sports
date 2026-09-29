@@ -1,9 +1,10 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.SportsScheduleStatsResponse;
 import com.manacommunity.sports.service.scheduler.SportsScheduleAllEventsService;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -57,3 +58,5 @@ public class SportsScheduleAllEventsController {
         return ResponseEntity.ok(scheduleService.getCompletedGames(user));
     }
 }
+
+

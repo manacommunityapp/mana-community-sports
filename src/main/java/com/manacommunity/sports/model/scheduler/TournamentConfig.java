@@ -1,8 +1,9 @@
 package com.manacommunity.sports.model.scheduler;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 
 import com.manacommunity.sports.model.*;
 import jakarta.persistence.*;
@@ -49,6 +50,14 @@ public class TournamentConfig {
     // ── Knockout config ───────────────────────────────────────────
     private Boolean thirdPlaceMatch;       // play 3rd place match?
     private Boolean hasSeeding;            // seed teams 1..N before draw
+    @Builder.Default
+    private Boolean differentFlatEnforced = true;
+    @Builder.Default
+    private Boolean differentTowerEnforced = true;
+    @Builder.Default
+    private Boolean ratingBalancingEnabled = true;
+    @Builder.Default
+    private Integer minRestMinutesBetweenMatches = 30;
 
     // ── Swiss config ──────────────────────────────────────────────
     private Integer swissRounds;           // usually ceil(log2(teams))
@@ -93,3 +102,5 @@ public class TournamentConfig {
 
     public enum TournamentStatus { DRAFT, ACTIVE, LIVE, COMPLETED, CANCELLED }
 }
+
+

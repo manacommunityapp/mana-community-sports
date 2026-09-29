@@ -1,8 +1,9 @@
 package com.manacommunity.sports.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.email.EmailProperties;
 import com.manacommunity.sports.email.MatchReminderEmailService;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.AuctionPlayer;
 import com.manacommunity.sports.model.AuctionTeam;
 import com.manacommunity.sports.model.scheduler.TournamentMatch;
@@ -93,3 +94,5 @@ public class MatchReminderScheduler {
         byId.putIfAbsent(user.getId(), user);
     }
 }
+
+

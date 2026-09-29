@@ -1,6 +1,7 @@
 package com.manacommunity.sports.scheduler;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.user.model.AppUser;
 import java.util.List;
 
 /**
@@ -11,3 +12,5 @@ import java.util.List;
 public interface PushNotificationService {
     void sendBulk(List<AppUser> recipients, String title, String body);
 }
+
+

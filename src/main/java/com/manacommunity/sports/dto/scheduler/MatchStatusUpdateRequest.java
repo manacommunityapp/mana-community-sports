@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 /**
  * Request body for PUT /api/tournament/{configId}/matches/status.
  * Updates the status of every match belonging to the config —

@@ -1,6 +1,7 @@
 package com.manacommunity.sports.service.sample.data;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.Venue;
 import com.manacommunity.sports.repository.VenueRepository;
 import lombok.RequiredArgsConstructor;
@@ -53,3 +54,5 @@ public class VenueDataSeeder {
                         .build()));
     }
 }
+
+

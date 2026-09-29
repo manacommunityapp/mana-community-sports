@@ -1,5 +1,7 @@
 package com.manacommunity.sports.email;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.util.EmailTemplateRenderer;
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.service.NotificationManagementService;
 import lombok.RequiredArgsConstructor;
@@ -150,3 +152,4 @@ public class RegistrationEmailService {
         }
     }
 }
+

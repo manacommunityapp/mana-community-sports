@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 public enum MatchRound {
     // Knockout rounds
     ROUND_OF_64, ROUND_OF_32, ROUND_OF_16,
@@ -17,3 +18,4 @@ public enum MatchRound {
     // Super league
     ELIMINATOR, QUALIFIER_1, QUALIFIER_2, SUPER_FINAL
 }
+

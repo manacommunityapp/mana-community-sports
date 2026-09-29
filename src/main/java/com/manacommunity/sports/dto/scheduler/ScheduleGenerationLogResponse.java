@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 import java.time.LocalDateTime;
 
 /**
@@ -22,3 +23,4 @@ public record ScheduleGenerationLogResponse(
     String errorMessage,
     LocalDateTime createdAt
 ) {}
+

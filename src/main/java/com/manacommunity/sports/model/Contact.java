@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,3 +28,4 @@ public class Contact {
     @Column(nullable = false, length = 100)
     private String email;
 }
+

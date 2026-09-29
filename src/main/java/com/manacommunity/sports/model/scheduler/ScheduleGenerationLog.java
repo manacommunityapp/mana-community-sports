@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -77,3 +78,4 @@ public class ScheduleGenerationLog {
     @PrePersist
     void onCreate() { createdAt = LocalDateTime.now(); }
 }
+

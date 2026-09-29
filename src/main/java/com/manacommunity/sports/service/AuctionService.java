@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.*;
 import com.manacommunity.sports.model.AuctionBid;
 import com.manacommunity.sports.model.AuctionConfig;
@@ -35,3 +36,4 @@ public interface AuctionService {
     
     AuctionPlayer createPlayer(Long configId, AuctionPlayerRequest req);
 }
+

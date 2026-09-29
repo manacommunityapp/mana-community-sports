@@ -1,5 +1,7 @@
 package com.manacommunity.sports.response;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,3 +27,5 @@ public class CommunityResponse {
     private Boolean active;
     private List<String> enabledModules;
 }
+
+

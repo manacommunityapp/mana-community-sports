@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.scheduler.BattingPerformance;
 import com.manacommunity.sports.model.scheduler.DismissalType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,3 +22,4 @@ public interface BattingPerformanceRepository extends JpaRepository<BattingPerfo
         @Param("dismissalType") DismissalType dismissalType,
         @Param("configId") Long configId);
 }
+

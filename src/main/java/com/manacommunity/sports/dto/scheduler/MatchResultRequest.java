@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.constraints.NotNull;
 
 public record MatchResultRequest(
@@ -13,3 +14,4 @@ public record MatchResultRequest(
     Integer          oversTeamA,
     Integer          oversTeamB
 ) {}
+

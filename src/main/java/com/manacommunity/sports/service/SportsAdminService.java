@@ -1,5 +1,7 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import static com.manacommunity.sports.constants.PermissionConstants.*;
 import com.manacommunity.sports.dto.dashboard.SportsAdminFormDataResponse;
 import com.manacommunity.sports.dto.dashboard.SportsAdminFormDataResponse.CategoryOption;
@@ -8,7 +10,7 @@ import com.manacommunity.sports.dto.dashboard.SportsAdminOverviewResponse;
 import com.manacommunity.sports.dto.dashboard.SportsAdminOverviewResponse.EventRow;
 import com.manacommunity.sports.dto.dashboard.SportsAdminOverviewResponse.SportRef;
 import com.manacommunity.sports.dto.dashboard.SportsAdminOverviewResponse.TournamentRow;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.SportsMeta;
@@ -38,7 +40,7 @@ public class SportsAdminService {
 
     private final TournamentService tournamentService;
     private final SportsEventService eventService;
-    private final CommunityService communityService;
+    private final com.manacommunity.sports.repository.CommunityRepository communityRepo;
     private final SportMetaRepository sportMetaRepo;
     private final PlayerCategoryRepository categoryRepo;
     private final SportsEventRegistrationRepository regRepo;
@@ -169,7 +171,16 @@ public class SportsAdminService {
                         c.getDescription(), c.getMinAge(), c.getMaxAge(), c.getGender()))
                 .toList();
 
+        List<com.manacommunity.sports.response.CommunityResponse> communityResponses = communityRepo.findAll().stream()
+                .map(c -> new com.manacommunity.sports.response.CommunityResponse(
+                        c.getId(), c.getName(), c.getType(), c.getCity(), c.getState(),
+                        c.getArea(), c.getSubtype(), c.getInviteCode(), c.getActive(), java.util.List.of()))
+                .toList();
+
         return new SportsAdminFormDataResponse(
-                sports, categories, communityService.getAllCommunities());
+                sports, categories, communityResponses);
     }
 }
+
+
+

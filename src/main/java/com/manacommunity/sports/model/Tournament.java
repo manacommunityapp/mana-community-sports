@@ -1,5 +1,7 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -126,3 +128,5 @@ public class Tournament {
     public enum MatchFormat { SINGLES, DOUBLES, MIXED_DOUBLES, TEAM }
     public enum TournamentType { KNOCKOUT, ROUND_ROBIN, LEAGUE, KNOCKOUT_SINGLE, KNOCKOUT_DOUBLE, GROUP_PLAYOFF, CUSTOM }
 }
+
+

@@ -1,5 +1,7 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.Tournament;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -41,3 +43,5 @@ public interface TournamentRepository extends JpaRepository<Tournament, Long> {
     @Query("DELETE FROM Tournament t WHERE t.id IN (SELECT t2.id FROM Tournament t2 JOIN t2.sportsEvents se WHERE se.id = :eventId)")
     void deleteByEventId(@Param("eventId") Long eventId);
 }
+
+

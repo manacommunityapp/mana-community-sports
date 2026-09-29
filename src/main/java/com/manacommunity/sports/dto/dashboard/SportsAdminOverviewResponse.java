@@ -1,5 +1,7 @@
 package com.manacommunity.sports.dto.dashboard;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -64,3 +66,5 @@ public record SportsAdminOverviewResponse(
     /** Just the sport fields the cards display (name + icon/iconUrl). */
     public record SportRef(String name, String icon, String iconUrl) {}
 }
+
+

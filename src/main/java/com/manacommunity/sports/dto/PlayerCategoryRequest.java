@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Data;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,3 +28,4 @@ public class PlayerCategoryRequest {
     
     private Long communityId;
 }
+

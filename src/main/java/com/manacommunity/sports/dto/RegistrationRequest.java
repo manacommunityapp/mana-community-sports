@@ -1,5 +1,7 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -31,3 +33,5 @@ public class RegistrationRequest {
      */
     String recaptchaToken;
 }
+
+

@@ -1,7 +1,10 @@
 package com.manacommunity.sports.user.service;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Role;
 import com.manacommunity.sports.user.dto.AdminCreateUserRequest;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 
 /** Admin-facing user management (create-user page and related operations). */
 public interface AdminUserService {
@@ -13,3 +16,6 @@ public interface AdminUserService {
      */
     AppUser createUser(AdminCreateUserRequest request);
 }
+
+
+

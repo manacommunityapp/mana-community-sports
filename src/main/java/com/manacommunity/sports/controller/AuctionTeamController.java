@@ -1,10 +1,11 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.AuctionTeamRequest;
 import com.manacommunity.sports.dto.AuctionTeamResponse;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.AuctionTeam;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.service.AuctionTeamService;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.PermissionCheckService;
@@ -110,3 +111,5 @@ public class AuctionTeamController {
                 .build();
     }
 }
+
+

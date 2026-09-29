@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.SportsNotificationScheduler;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -11,3 +12,4 @@ public interface SportsNotificationSchedulerRepository extends JpaRepository<Spo
     void deleteByEventId(Long eventId);
     List<SportsNotificationScheduler> findByNotifyAtBeforeAndSentFalseAndEnabledTrue(java.time.LocalDateTime now);
 }
+

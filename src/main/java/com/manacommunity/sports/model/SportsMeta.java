@@ -1,5 +1,7 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -91,3 +93,5 @@ class StringListConverter implements AttributeConverter<List<String>, String> {
         return new ArrayList<>(java.util.Arrays.asList(dbData.split(",")));
     }
 }
+
+

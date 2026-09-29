@@ -1,7 +1,8 @@
 package com.manacommunity.sports.service.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.email.TournamentResultEmailService;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.AuctionPlayer;
 import com.manacommunity.sports.model.AuctionTeam;
 import com.manacommunity.sports.model.SportsEventRegistration;
@@ -135,3 +136,5 @@ public class TournamentResultNotifier {
         return sb.toString().trim();
     }
 }
+
+

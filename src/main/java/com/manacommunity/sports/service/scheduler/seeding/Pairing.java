@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service.scheduler.seeding;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.scheduler.PlayoffMatchDraftResponse.ParticipantRef;
 
 /**
@@ -15,3 +16,4 @@ public record Pairing(ParticipantRef home, ParticipantRef away) {
         return away == null;
     }
 }
+

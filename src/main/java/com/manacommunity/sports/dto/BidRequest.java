@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
@@ -10,3 +11,4 @@ public record BidRequest(
     @NotNull @Min(1) Long bidAmount,
     Boolean isRtm
 ) {}
+

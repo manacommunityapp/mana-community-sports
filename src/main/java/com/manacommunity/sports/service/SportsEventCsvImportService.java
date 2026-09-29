@@ -1,10 +1,11 @@
 package com.manacommunity.sports.service;
 
-import com.manacommunity.sports.model.Role;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 
 import com.manacommunity.sports.exception.CsvParseException;
 import com.manacommunity.sports.exception.InvalidFileUploadException;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
+import com.manacommunity.common.exception.ResourceNotFoundException;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.SportsEventRegistration;
@@ -182,3 +183,5 @@ public class SportsEventCsvImportService {
         return SportsEvent.MatchFormat.SINGLES;
     }
 }
+
+

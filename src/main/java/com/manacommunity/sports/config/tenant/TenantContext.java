@@ -1,5 +1,6 @@
 package com.manacommunity.sports.config.tenant;
 
+import com.manacommunity.common.enums.*;
 /**
  * Thread-local holder for the current tenant schema name.
  * Set by TenantFilter on each request, cleared on completion.
@@ -25,3 +26,4 @@ public final class TenantContext {
         CURRENT_TENANT.remove();
     }
 }
+

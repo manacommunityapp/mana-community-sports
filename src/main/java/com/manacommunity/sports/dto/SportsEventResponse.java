@@ -1,5 +1,7 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import lombok.Builder;
 import lombok.Data;
 
@@ -118,3 +120,5 @@ public class SportsEventResponse {
         private String registrationStatus;
     }
 }
+
+

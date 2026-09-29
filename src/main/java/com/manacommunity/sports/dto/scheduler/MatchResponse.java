@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 public record MatchResponse(
     Long    matchId,
     String  roundName,
@@ -23,3 +24,4 @@ public record MatchResponse(
     Long    winnerAdvancesToMatchId,
     boolean isBye
 ) {}
+

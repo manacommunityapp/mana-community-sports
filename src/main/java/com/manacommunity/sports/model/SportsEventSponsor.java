@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -48,3 +49,4 @@ public class SportsEventSponsor {
         createdAt = LocalDateTime.now();
     }
 }
+

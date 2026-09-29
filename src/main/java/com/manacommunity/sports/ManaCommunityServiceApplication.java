@@ -1,5 +1,6 @@
 package com.manacommunity.sports;
 
+import com.manacommunity.common.enums.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -14,3 +15,4 @@ public class ManaCommunityServiceApplication {
         SpringApplication.run(ManaCommunityServiceApplication.class, args);
     }
 }
+

@@ -1,6 +1,8 @@
 package com.manacommunity.sports.user.dto;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.model.Community;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -54,3 +56,6 @@ public class UserProfileResponse {
         private int sportsPlayed;
     }
 }
+
+
+

@@ -1,5 +1,7 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
@@ -19,3 +21,5 @@ public record MenuRolePermissionBulkRequest(
         Boolean canDelete
     ) {}
 }
+
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionTeam;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,3 +30,4 @@ public interface AuctionTeamRepository extends JpaRepository<AuctionTeam, Long> 
     List<AuctionTeam> findByConfigIdAndCaptainNominationTrue(Long configId);
     List<AuctionTeam> findByOwnerUserIdOrCaptainUserId(Long ownerUserId, Long captainUserId);
 }
+

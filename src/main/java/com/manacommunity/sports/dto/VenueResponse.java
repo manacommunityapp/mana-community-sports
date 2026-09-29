@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -41,3 +42,4 @@ public class VenueResponse {
         private String closingTime;
     }
 }
+

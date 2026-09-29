@@ -1,5 +1,7 @@
 package com.manacommunity.sports.email;
 
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.enums.*;
 /**
  * A single, fully-rendered HTML email ready to be dispatched.
  *
@@ -15,3 +17,5 @@ public record EmailMessage(String to, String toName, String subject, String html
         this(to, toName, subject, htmlBody, null, null);
     }
 }
+
+

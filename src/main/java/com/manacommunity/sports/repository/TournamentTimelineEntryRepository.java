@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.TournamentTimelineEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -9,3 +10,4 @@ public interface TournamentTimelineEntryRepository extends JpaRepository<Tournam
 
     List<TournamentTimelineEntry> findByTournamentIdOrderBySortOrderAscIdAsc(Long tournamentId);
 }
+

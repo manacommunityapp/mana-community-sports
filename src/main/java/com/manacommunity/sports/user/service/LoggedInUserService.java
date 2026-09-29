@@ -1,9 +1,12 @@
 package com.manacommunity.sports.user.service;
 
-import com.manacommunity.sports.exception.ResourceNotFoundException;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.repository.AppUserRepository;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.exception.ResourceNotFoundException;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.repository.AppUserRepository;
+import com.manacommunity.common.user.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -54,3 +57,6 @@ public class LoggedInUserService {
         }
     }
 }
+
+
+

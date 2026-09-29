@@ -1,6 +1,8 @@
 package com.manacommunity.sports.model;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.user.model.AppUser;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -72,3 +74,6 @@ public class SportsEventRegistration {
 
     public enum RegistrationStatus { PENDING, REGISTERED, CONFIRMED, WITHDRAWN, REJECTED }
 }
+
+
+

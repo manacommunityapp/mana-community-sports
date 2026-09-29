@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 /**
  * One generated playoff match (draft). Mirrors the UI's PlayoffMatchDraft
  * (playoffSchedule.ts) so the JSON the frontend already consumes is unchanged.
@@ -25,3 +26,4 @@ public record PlayoffMatchDraftResponse(
         }
     }
 }
+

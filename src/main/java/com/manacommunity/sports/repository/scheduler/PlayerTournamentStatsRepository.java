@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.scheduler.PlayerTournamentStats;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,3 +15,4 @@ public interface PlayerTournamentStatsRepository extends JpaRepository<PlayerTou
     List<PlayerTournamentStats> findByConfigIdOrderByManOfMatchCountDesc(Long configId);
     List<PlayerTournamentStats> findByPlayerId(Long playerId);
 }
+

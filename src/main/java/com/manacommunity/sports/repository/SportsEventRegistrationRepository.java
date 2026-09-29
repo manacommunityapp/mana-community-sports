@@ -1,5 +1,7 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.SportsEventRegistration;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -42,3 +44,5 @@ public interface SportsEventRegistrationRepository extends JpaRepository<SportsE
     @org.springframework.data.jpa.repository.Query("SELECT r FROM SportsEventRegistration r WHERE r.event.community.id = :communityId")
     List<SportsEventRegistration> findByCommunityId(@org.springframework.data.repository.query.Param("communityId") Long communityId);
 }
+
+

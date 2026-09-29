@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import java.util.List;
 
 public record SportsMetaResponse(
@@ -11,3 +12,4 @@ public record SportsMetaResponse(
     List<String> formats,
     Boolean active
 ) {}
+

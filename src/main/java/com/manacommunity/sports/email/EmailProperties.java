@@ -1,6 +1,8 @@
 package com.manacommunity.sports.email;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -49,3 +51,6 @@ public class EmailProperties {
 
     public enum RecipientMode { NONE, REDIRECT, CC }
 }
+
+
+

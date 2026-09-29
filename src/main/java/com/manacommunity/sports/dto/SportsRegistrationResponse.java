@@ -1,5 +1,7 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import lombok.Builder;
 import lombok.Data;
 
@@ -70,3 +72,5 @@ public class SportsRegistrationResponse {
         private String gender;
     }
 }
+
+

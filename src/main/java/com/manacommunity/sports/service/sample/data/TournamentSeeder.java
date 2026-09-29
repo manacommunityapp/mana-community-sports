@@ -1,5 +1,7 @@
 package com.manacommunity.sports.service.sample.data;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.Tournament;
 import com.manacommunity.sports.repository.CommunityRepository;
@@ -79,3 +81,5 @@ public class TournamentSeeder {
         log.info("✓ Tournament seeded: LE 2026 Summer Champ (id={})", tournament.getId());
     }
 }
+
+

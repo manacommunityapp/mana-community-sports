@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.scheduler.ScheduleGenerationLog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,3 +18,4 @@ public interface ScheduleGenerationLogRepository extends JpaRepository<ScheduleG
 
     Page<ScheduleGenerationLog> findByGeneratedByOrderByCreatedAtDesc(Long userId, Pageable pageable);
 }
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.response;
 
+import com.manacommunity.common.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,3 +21,4 @@ public class MCTResponse {
         this.message = message;
     }
 }
+

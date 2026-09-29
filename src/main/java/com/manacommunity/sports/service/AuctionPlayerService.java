@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionPlayer;
 
 public interface AuctionPlayerService {

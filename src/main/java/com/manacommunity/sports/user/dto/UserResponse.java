@@ -1,5 +1,7 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 import lombok.Builder;
 import lombok.Data;
 
@@ -25,3 +27,5 @@ public class UserResponse {
     private java.util.List<String> permissions;
     private java.util.List<String> enabledModules;
 }
+
+

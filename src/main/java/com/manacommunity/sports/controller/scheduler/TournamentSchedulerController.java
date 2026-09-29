@@ -1,14 +1,16 @@
 package com.manacommunity.sports.controller.scheduler;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.scheduler.*;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.scheduler.TournamentConfig;
 import com.manacommunity.sports.model.scheduler.TournamentMatch;
 import com.manacommunity.sports.repository.SportsEventRepository;
 import com.manacommunity.sports.repository.scheduler.TournamentConfigRepository;
 import com.manacommunity.sports.repository.scheduler.TournamentMatchRepository;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.scheduler.TournamentSchedulerService;
 import lombok.RequiredArgsConstructor;
@@ -76,7 +78,7 @@ public class TournamentSchedulerController {
     @GetMapping("/config/{id}")
     public ResponseEntity<TournamentConfigResponse> getConfig(@PathVariable Long id) {
         TournamentConfig config = configRepo.findById(id)
-                .orElseThrow(() -> new com.manacommunity.sports.exception.ResourceNotFoundException("TournamentConfig", id));
+                .orElseThrow(() -> new com.manacommunity.common.exception.ResourceNotFoundException("TournamentConfig", id));
         return ResponseEntity.ok(schedulerService.toConfigResponse(config));
     }
 
@@ -419,3 +421,6 @@ public class TournamentSchedulerController {
         String id, String name, String description,
         String teamRange, String formatNote) {}
 }
+
+
+

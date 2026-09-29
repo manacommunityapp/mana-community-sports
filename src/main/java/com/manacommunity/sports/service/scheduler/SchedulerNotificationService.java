@@ -1,7 +1,8 @@
 package com.manacommunity.sports.service.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.email.ScheduleEmailService;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.SportsEventRegistration;
 import com.manacommunity.sports.model.scheduler.TournamentConfig;
 import com.manacommunity.sports.repository.SportsEventRegistrationRepository;
@@ -73,3 +74,5 @@ public class SchedulerNotificationService {
             recipients.size(), config.getTournamentName());
     }
 }
+
+

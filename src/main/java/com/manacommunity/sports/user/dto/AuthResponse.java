@@ -1,5 +1,7 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
 public class AuthResponse {
     private String userId;
     private String message;
@@ -76,3 +78,5 @@ public class AuthResponse {
     public java.util.List<String> getEnabledModules() { return enabledModules; }
     public void setEnabledModules(java.util.List<String> enabledModules) { this.enabledModules = enabledModules; }
 }
+
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Data;
 
 /**
@@ -14,3 +15,4 @@ public class AuctionTeamSummary{
         Integer remainingBudget;
         int playerCount;
 }
+

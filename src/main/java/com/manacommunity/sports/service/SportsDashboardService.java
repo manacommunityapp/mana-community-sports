@@ -1,11 +1,12 @@
 package com.manacommunity.sports.service;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 
 import static com.manacommunity.sports.constants.PermissionConstants.*;
 import com.manacommunity.sports.dto.dashboard.SportsDashboardResponse;
 import com.manacommunity.sports.dto.dashboard.SportsDashboardResponse.*;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.SportsEventRegistration;
@@ -226,3 +227,5 @@ public class SportsDashboardService {
                 .orElse(null);
     }
 }
+
+

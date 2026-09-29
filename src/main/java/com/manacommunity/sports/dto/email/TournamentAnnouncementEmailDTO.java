@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.email;
 
+import com.manacommunity.common.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -55,3 +56,4 @@ public class TournamentAnnouncementEmailDTO {
     @Builder.Default
     private List<GalleryDTO> galleryImages = new ArrayList<>();
 }
+

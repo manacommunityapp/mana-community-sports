@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 public record AuctionConfigResponse(
     Long   id,
     Long   eventId,
@@ -21,3 +22,4 @@ public record AuctionConfigResponse(
     java.util.List<String> categories,
     java.util.List<String> committeeMembers
 ) {}
+

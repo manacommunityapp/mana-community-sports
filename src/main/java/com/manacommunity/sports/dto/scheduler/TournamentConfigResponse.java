@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -19,6 +20,10 @@ public record TournamentConfigResponse(
     Integer teamsAdvancingPerGroup,
     Boolean thirdPlaceMatch,
     Boolean hasSeeding,
+    Boolean differentFlatEnforced,
+    Boolean differentTowerEnforced,
+    Boolean ratingBalancingEnabled,
+    Integer minRestMinutesBetweenMatches,
     Integer swissRounds,
     LocalDate startDate,
     LocalDate endDate,
@@ -34,3 +39,4 @@ public record TournamentConfigResponse(
     LocalDateTime createdAt,
     LocalDateTime updatedAt
 ) {}
+

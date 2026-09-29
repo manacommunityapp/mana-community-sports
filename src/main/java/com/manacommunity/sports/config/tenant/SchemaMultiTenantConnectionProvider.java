@@ -1,5 +1,7 @@
 package com.manacommunity.sports.config.tenant;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider;
 import org.springframework.boot.hibernate.autoconfigure.HibernatePropertiesCustomizer;
@@ -80,3 +82,5 @@ public class SchemaMultiTenantConnectionProvider
         return schema;
     }
 }
+
+

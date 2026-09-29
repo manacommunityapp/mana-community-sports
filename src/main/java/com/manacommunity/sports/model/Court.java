@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,3 +34,4 @@ public class Court {
     @JsonIgnore
     private Venue venue;
 }
+

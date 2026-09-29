@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 /**
  * Outcome status of a schedule generation/save operation.
  */
@@ -8,3 +9,4 @@ public enum GenerationStatus {
     FAILED,
     PARTIAL   // some matches saved but validation warnings exist
 }
+

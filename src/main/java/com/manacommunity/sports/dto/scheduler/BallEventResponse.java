@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 public record BallEventResponse(
     Long id,
     Long matchId,
@@ -30,3 +31,4 @@ public record BallEventResponse(
     String commentary,
     String timestamp
 ) {}
+

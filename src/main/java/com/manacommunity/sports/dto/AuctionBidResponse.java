@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,3 +20,4 @@ public class AuctionBidResponse {
     private Long bidByUserId;
     private LocalDateTime bidAt;
 }
+

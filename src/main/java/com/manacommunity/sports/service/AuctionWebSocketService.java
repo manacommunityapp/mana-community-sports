@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.AuctionBidResponse;
 import com.manacommunity.sports.dto.AuctionStatsResponse;
 import com.manacommunity.sports.dto.PlayerWithBidResponse;
@@ -62,3 +63,4 @@ public class AuctionWebSocketService {
 
     public record StatusChangePayload(Long configId, String oldStatus, String newStatus) {}
 }
+

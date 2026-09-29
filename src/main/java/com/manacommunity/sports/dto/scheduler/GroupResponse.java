@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 import java.util.List;
 
 public record GroupResponse(
@@ -8,3 +9,4 @@ public record GroupResponse(
     List<StandingResponse>     standings,
     List<MatchResponse>        matches
 ) {}
+

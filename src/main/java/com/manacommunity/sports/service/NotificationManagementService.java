@@ -1,9 +1,11 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.NotificationCountResponse;
 import com.manacommunity.sports.dto.NotificationResponse;
 import com.manacommunity.sports.model.*;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import com.manacommunity.sports.repository.CommunityRepository;
 import com.manacommunity.sports.repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
@@ -329,3 +331,6 @@ public class NotificationManagementService {
         );
     }
 }
+
+
+

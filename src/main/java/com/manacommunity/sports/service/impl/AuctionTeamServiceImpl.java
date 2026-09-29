@@ -1,16 +1,17 @@
 package com.manacommunity.sports.service.impl;
 
-import com.manacommunity.sports.security.AuditAction;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.enums.AuditAction;
 
-import com.manacommunity.sports.security.AuditModule;
+import com.manacommunity.common.enums.AuditModule;
 
-import com.manacommunity.sports.security.AuditService;
+import com.manacommunity.common.security.AuditService;
 
 import com.manacommunity.sports.dto.AuctionTeamRequest;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.exception.ResourceNotFoundException;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.*;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import com.manacommunity.sports.repository.AuctionConfigRepository;
 import com.manacommunity.sports.repository.AuctionTeamRepository;
 import com.manacommunity.sports.service.AuctionTeamService;
@@ -30,7 +31,7 @@ public class AuctionTeamServiceImpl implements AuctionTeamService {
     private final AuctionTeamRepository teamRepo;
     private final AuctionConfigRepository configRepo;
     private final AppUserRepository userRepo;
-    private final com.manacommunity.sports.security.AuditService auditService;
+    private final com.manacommunity.common.security.AuditService auditService;
     private final NotificationManagementService notificationService;
 
     @Override
@@ -72,8 +73,8 @@ public class AuctionTeamServiceImpl implements AuctionTeamService {
 
         AuctionTeam savedTeam = teamRepo.save(team);
         auditService.record(
-            com.manacommunity.sports.security.AuditAction.TEAM_CREATED,
-            com.manacommunity.sports.security.AuditModule.AUCTION,
+            com.manacommunity.common.enums.AuditAction.TEAM_CREATED,
+            com.manacommunity.common.enums.AuditModule.AUCTION,
             "AuctionTeam", String.valueOf(savedTeam.getId()),
             null,
             "name=" + savedTeam.getTeamName() + ", budget=" + savedTeam.getTotalBudget());
@@ -190,3 +191,6 @@ public class AuctionTeamServiceImpl implements AuctionTeamService {
         return teamRepo.findByOwnerUserIdOrCaptainUserId(userId, userId);
     }
 }
+
+
+

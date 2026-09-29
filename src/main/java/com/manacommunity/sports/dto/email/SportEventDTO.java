@@ -10,13 +10,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SportEventDTO {
-    private String eventName;
     private String sportName;
+    private String eventName;
+    private String category;
+    private String format;
+    private Integer maxParticipants;
     private String icon;
     private String gender;
     private String ageRange;
     private String eventDate;
     private String venueName;
-    /** Presentation-only accent colour for the sport icon tile (resolved in the service). */
     private String iconBgColor;
 }

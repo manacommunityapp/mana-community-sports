@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 public enum TournamentType {
     /** Single elimination — lose once and you're out */
     KNOCKOUT,
@@ -36,3 +37,4 @@ public enum TournamentType {
     /** Custom format — falls back to single-elimination scheduling */
     CUSTOM
 }
+

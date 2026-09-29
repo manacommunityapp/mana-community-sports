@@ -1,8 +1,10 @@
 package com.manacommunity.sports.controller.scheduler;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.scheduler.ScheduleGenerationLogResponse;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.scheduler.ScheduleGenerationLogService;
 import lombok.RequiredArgsConstructor;
@@ -51,3 +53,6 @@ public class ScheduleGenerationLogController {
         return ResponseEntity.ok(logService.getLogsByCommunity(communityId, Math.max(page, 0), safeSize));
     }
 }
+
+
+

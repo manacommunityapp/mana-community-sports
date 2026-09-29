@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionPlayer;
 import com.manacommunity.sports.model.AuctionTeam;
 import jakarta.persistence.*;
@@ -59,3 +60,4 @@ public class MatchResult {
         updatedAt = LocalDateTime.now();
     }
 }
+

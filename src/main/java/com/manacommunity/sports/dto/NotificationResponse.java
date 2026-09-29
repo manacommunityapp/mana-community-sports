@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import java.time.LocalDateTime;
 
 /**
@@ -21,3 +22,4 @@ public record NotificationResponse(
     String metadata,
     LocalDateTime createdAt
 ) {}
+

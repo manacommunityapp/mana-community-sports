@@ -1,13 +1,14 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
 import static com.manacommunity.sports.constants.PermissionConstants.*;
 
 import com.manacommunity.sports.constants.PermissionConstants;
 import com.manacommunity.sports.dto.VenueRequest;
 import com.manacommunity.sports.dto.VenueResponse;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.Venue;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.PermissionCheckService;
 import com.manacommunity.sports.service.VenueService;
@@ -97,3 +98,5 @@ public class VenueController {
         return ResponseEntity.noContent().build();
     }
 }
+
+

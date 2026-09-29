@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -52,3 +53,4 @@ public class TournamentGalleryImage {
         createdAt = LocalDateTime.now();
     }
 }
+

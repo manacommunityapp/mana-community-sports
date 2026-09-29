@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.SportsMeta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -22,3 +23,4 @@ public interface SportMetaRepository extends JpaRepository<SportsMeta, Long> {
 
     java.util.Optional<SportsMeta> findByNameIgnoreCase(String name);
 }
+

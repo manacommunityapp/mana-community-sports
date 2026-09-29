@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Data;
 import java.util.List;
 
@@ -28,3 +29,4 @@ public class NotificationScheduleDto {
     private String offsetType;
     private long offsetValue;
 }
+

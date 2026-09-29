@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -37,3 +38,4 @@ public class TournamentResponse {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
+

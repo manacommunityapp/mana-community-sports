@@ -1,6 +1,8 @@
 package com.manacommunity.sports.model;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.user.model.AppUser;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -201,3 +203,6 @@ public class SportsEvent {
     public enum MatchFormat { SINGLES, DOUBLES, MIXED_DOUBLES, TEAM }
     public enum TournamentType { KNOCKOUT, ROUND_ROBIN, LEAGUE, KNOCKOUT_SINGLE, KNOCKOUT_DOUBLE, GROUP_PLAYOFF, CUSTOM }
 }
+
+
+

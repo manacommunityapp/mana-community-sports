@@ -1,8 +1,10 @@
 package com.manacommunity.sports.service.sample.data;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.model.Community;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.repository.SportsEventRegistrationRepository;
@@ -231,3 +233,6 @@ public class SportsEventSeeder {
                 .build());
     }
 }
+
+
+

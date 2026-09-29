@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service.sample.data;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.SportsMeta;
 import com.manacommunity.sports.repository.SportMetaRepository;
 import lombok.RequiredArgsConstructor;
@@ -90,3 +91,4 @@ public class SportsMetaSeeder {
                name.contains("rugby");
     }
 }
+

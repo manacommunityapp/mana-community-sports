@@ -1,5 +1,6 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.TournamentAnnouncement;
 import com.manacommunity.sports.model.TournamentGalleryImage;
 import com.manacommunity.sports.model.TournamentTimelineEntry;
@@ -100,3 +101,4 @@ public class TournamentContentController {
         return ResponseEntity.noContent().build();
     }
 }
+

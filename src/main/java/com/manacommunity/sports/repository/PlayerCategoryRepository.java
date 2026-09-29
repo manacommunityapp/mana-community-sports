@@ -1,5 +1,7 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.PlayerCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,4 +30,6 @@ public interface PlayerCategoryRepository extends JpaRepository<PlayerCategory, 
     @Query("SELECT c FROM PlayerCategory c WHERE c.type = 'DEFAULT' OR c.community.id = :communityId")
     List<PlayerCategory> findDefaultAndCommunityCategories(@Param("communityId") Long communityId);
 }
+
+
 

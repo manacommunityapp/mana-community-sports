@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.constraints.NotBlank;
 
 public record TournamentAnnouncementRequest(
@@ -10,3 +11,4 @@ public record TournamentAnnouncementRequest(
         boolean sendPush,
         String customHtml
 ) {}
+

@@ -1,11 +1,12 @@
 package com.manacommunity.sports.service.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.scheduler.ScheduleGenerationLogResponse;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.scheduler.GenerationAction;
 import com.manacommunity.sports.model.scheduler.GenerationStatus;
 import com.manacommunity.sports.model.scheduler.ScheduleGenerationLog;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import com.manacommunity.sports.repository.scheduler.ScheduleGenerationLogRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -116,3 +117,5 @@ public class ScheduleGenerationLogService {
         );
     }
 }
+
+

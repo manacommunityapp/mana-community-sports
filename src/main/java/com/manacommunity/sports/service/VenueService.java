@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.VenueRequest;
 import com.manacommunity.sports.dto.VenueResponse;
 import com.manacommunity.sports.model.Venue;
@@ -15,3 +16,4 @@ public interface VenueService {
     VenueResponse updateVenue(Long id, VenueRequest request);
     void deleteVenue(Long id);
 }
+

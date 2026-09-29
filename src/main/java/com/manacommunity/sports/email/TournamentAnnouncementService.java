@@ -1,10 +1,13 @@
 package com.manacommunity.sports.email;
 
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.TournamentAnnouncementRequest;
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.service.NotificationManagementService;
-import com.manacommunity.sports.user.model.AppUser;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.model.AppUser;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -90,3 +93,7 @@ public class TournamentAnnouncementService {
     }
 
 }
+
+
+
+

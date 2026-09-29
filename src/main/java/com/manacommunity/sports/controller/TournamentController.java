@@ -1,5 +1,7 @@
 package com.manacommunity.sports.controller;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import static com.manacommunity.sports.constants.PermissionConstants.*;
 import com.manacommunity.sports.dto.SponsorDto;
 import com.manacommunity.sports.dto.TournamentAnnouncementRequest;
@@ -8,9 +10,9 @@ import com.manacommunity.sports.dto.TournamentResponse;
 import com.manacommunity.sports.dto.SportsEventResponse;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.email.TournamentAnnouncementService;
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.Tournament;
-import com.manacommunity.sports.user.security.UserPrincipal;
+import com.manacommunity.common.user.security.UserPrincipal;
 import com.manacommunity.sports.user.service.LoggedInUserService;
 import com.manacommunity.sports.service.SportsEventService;
 import com.manacommunity.sports.service.TournamentService;
@@ -298,3 +300,6 @@ public class TournamentController {
                 .build();
     }
 }
+
+
+

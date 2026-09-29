@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -23,3 +24,4 @@ public class AuctionTeamResponse {
     private Boolean captainConfirmation;
     private LocalDateTime createdAt;
 }
+

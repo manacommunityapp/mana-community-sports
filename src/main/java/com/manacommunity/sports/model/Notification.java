@@ -1,6 +1,8 @@
 package com.manacommunity.sports.model;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.user.model.AppUser;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -90,3 +92,6 @@ public class Notification {
     @PrePersist
     void onCreate() { createdAt = LocalDateTime.now(); }
 }
+
+
+

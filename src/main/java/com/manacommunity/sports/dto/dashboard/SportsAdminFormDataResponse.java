@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.dashboard;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.response.CommunityResponse;
 
 import java.util.List;
@@ -35,3 +36,4 @@ public record SportsAdminFormDataResponse(
             String gender
     ) {}
 }
+

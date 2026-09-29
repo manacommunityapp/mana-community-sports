@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionTeam;
 import jakarta.persistence.*;
 import lombok.*;
@@ -37,3 +38,4 @@ public class GroupTeamStanding {
     @Builder.Default private Boolean qualified = false;
     @Builder.Default private Boolean eliminated = false;
 }
+

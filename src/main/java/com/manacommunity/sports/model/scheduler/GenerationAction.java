@@ -1,5 +1,6 @@
 package com.manacommunity.sports.model.scheduler;
 
+import com.manacommunity.common.enums.*;
 /**
  * Actions tracked in the schedule_generation_log table.
  */
@@ -13,3 +14,4 @@ public enum GenerationAction {
     BULK_SAVE,          // legacy bulk match save
     STATUS_UPDATE       // status-only update (DRAFT→PUBLISHED)
 }
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 public record BallEventRequest(
     Long matchId,
     Integer inningsNumber,
@@ -17,3 +18,4 @@ public record BallEventRequest(
     Long fielderId,
     String commentary
 ) {}
+

@@ -1,5 +1,6 @@
 package com.manacommunity.sports.user.dto;
 
+import com.manacommunity.common.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,3 +26,4 @@ public class UserProfileRequest {
     private String profilePicUrl;
     private String coverPicUrl;
 }
+

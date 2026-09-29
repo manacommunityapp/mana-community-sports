@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service.scheduler;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionTeam;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +16,33 @@ import java.util.List;
 public class SeedingService {
 
     /**
-     * Seed teams by ranking. Currently preserves input order as seeding
-     * (placeholder for future performance-based seeding).
+     * Seed teams by ranking/rating: sorts teams based on aggregated squad strength,
+     * player ratings, or total spent/budget.
      */
     public List<AuctionTeam> seed(List<AuctionTeam> teams) {
-        return teams;
+        if (teams == null || teams.size() < 2) return teams;
+        List<AuctionTeam> sorted = new ArrayList<>(teams);
+        sorted.sort((a, b) -> {
+            long scoreA = calculateTeamStrength(a);
+            long scoreB = calculateTeamStrength(b);
+            return Long.compare(scoreB, scoreA); // descending
+        });
+        return sorted;
+    }
+
+    private long calculateTeamStrength(AuctionTeam team) {
+        if (team == null) return 0L;
+        long strength = 0L;
+        if (team.getSpent() != null) strength += team.getSpent();
+        if (team.getTotalBudget() != null) strength += team.getTotalBudget() / 10;
+        if (team.getPlayers() != null) {
+            strength += team.getPlayers().size() * 1000L;
+            for (com.manacommunity.sports.model.AuctionPlayer p : team.getPlayers()) {
+                if (p.getSoldPrice() != null) strength += p.getSoldPrice();
+                else if (p.getBasePrice() != null) strength += p.getBasePrice();
+            }
+        }
+        return strength;
     }
 
     /**
@@ -40,3 +63,4 @@ public class SeedingService {
         return result;
     }
 }
+

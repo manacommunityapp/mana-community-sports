@@ -1,6 +1,8 @@
 package com.manacommunity.sports.service.sample.data;
 
-import com.manacommunity.sports.user.model.AppUser;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.PlayerCategory;
 import com.manacommunity.sports.model.SportsEvent;
 import com.manacommunity.sports.model.SportsEventRegistration;
@@ -214,3 +216,6 @@ public class SportsEventRegistrationDataSeeder {
         return 1;
     }
 }
+
+
+

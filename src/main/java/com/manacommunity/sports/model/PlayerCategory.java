@@ -1,5 +1,7 @@
 package com.manacommunity.sports.model;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -48,3 +50,5 @@ public class PlayerCategory {
     @JoinColumn(name = "community_id")
     private Community community;
 }
+
+

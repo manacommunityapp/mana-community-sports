@@ -1,5 +1,7 @@
 package com.manacommunity.sports.constants;
 
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 import java.util.List;
 
 public final class ModuleConstants {
@@ -26,3 +28,5 @@ public final class ModuleConstants {
         new ModuleDef("VENDOR_MANAGEMENT","Vendor Management",15)
     );
 }
+
+

@@ -1,6 +1,7 @@
 package com.manacommunity.sports.service.scheduler.seeding;
 
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.enums.*;
+import com.manacommunity.common.model.Community;
 
 import com.manacommunity.sports.dto.scheduler.PlayoffMatchDraftResponse.ParticipantRef;
 import org.springframework.stereotype.Component;
@@ -94,3 +95,5 @@ public class RandomSeedingStrategy implements SeedingStrategy {
         }
     }
 }
+
+

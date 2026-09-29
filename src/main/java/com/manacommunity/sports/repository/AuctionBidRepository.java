@@ -1,5 +1,6 @@
 package com.manacommunity.sports.repository;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.model.AuctionBid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,3 +29,4 @@ public interface AuctionBidRepository extends JpaRepository<AuctionBid, Long> {
     @Query("SELECT MAX(b.bidAmount) FROM AuctionBid b WHERE b.player.id = :playerId")
     Integer findMaxBidByPlayer(@Param("playerId") Long playerId);
 }
+

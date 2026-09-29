@@ -1,5 +1,6 @@
 package com.manacommunity.sports.dto.scheduler;
 
+import com.manacommunity.common.enums.*;
 import jakarta.validation.Valid;
 import java.util.List;
 
@@ -14,3 +15,4 @@ public record ScheduleSaveRequest(
     @Valid TournamentConfigRequest       config,
     List<BulkMatchSaveRequest.MatchData> matches
 ) {}
+

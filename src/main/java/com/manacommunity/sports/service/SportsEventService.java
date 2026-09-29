@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.RegistrationRequest;
 import com.manacommunity.sports.dto.SportsEventRequest;
 import com.manacommunity.sports.model.SportsEventRegistration;
@@ -46,3 +47,4 @@ public interface SportsEventService {
     long getConfirmedRegistrationCount(Long eventId);
     SportsEvent updateDisputeCommittee(Long eventId, java.util.List<Long> userIds);
 }
+

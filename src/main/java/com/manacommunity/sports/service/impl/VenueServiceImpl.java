@@ -1,10 +1,11 @@
 package com.manacommunity.sports.service.impl;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.ContactDto;
 import com.manacommunity.sports.dto.VenueRequest;
 import com.manacommunity.sports.dto.VenueResponse;
-import com.manacommunity.sports.exception.ResourceNotFoundException;
-import com.manacommunity.sports.model.Community;
+import com.manacommunity.common.exception.ResourceNotFoundException;
+import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.model.Contact;
 import com.manacommunity.sports.model.Court;
 import com.manacommunity.sports.model.Venue;
@@ -201,3 +202,5 @@ public class VenueServiceImpl implements VenueService {
                 .build();
     }
 }
+
+

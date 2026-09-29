@@ -1,5 +1,7 @@
 package com.manacommunity.sports.email;
 
+import com.manacommunity.common.util.EmailTemplateRenderer;
+import com.manacommunity.common.enums.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -65,3 +67,5 @@ public class EmailSupport {
         return s == null || s.isBlank();
     }
 }
+
+

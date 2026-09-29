@@ -1,5 +1,6 @@
 package com.manacommunity.sports.service;
 
+import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.AuctionTeamRequest;
 import com.manacommunity.sports.model.AuctionTeam;
 import java.util.List;
@@ -14,3 +15,4 @@ public interface AuctionTeamService {
 
     List<AuctionTeam> getCaptainRegistration(Long id);
 }
+
