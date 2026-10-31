@@ -2,6 +2,7 @@ package com.manacommunity.sports.model;
 
 import com.manacommunity.common.enums.*;
 import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Contact;
 import com.manacommunity.common.user.model.AppUser;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

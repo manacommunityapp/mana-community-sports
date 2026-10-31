@@ -35,19 +35,22 @@ public class AuctionConfigController {
 
     @GetMapping
     public ResponseEntity<List<AuctionConfigResponse>> getConfigs(
-            @RequestParam Long sportId,
+            @RequestParam(required = false) Long sportId,
             @AuthenticationPrincipal UserPrincipal principal) {
-        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION);
+        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION, VIEW_TEAMS_DASHBOARD, VIEW_PLAYER_POOL, VIEW_EVENT_REGISTRATIONS, VIEW_AUCTION_RESULTS, VIEW_SPORTS_MAIN);
         AppUser loggedInUser = loggedInUserService.resolve(principal);
         Long communityId = loggedInUser.getCommunity() != null ? loggedInUser.getCommunity().getId() : null;
-        return ResponseEntity.ok(auctionService.getConfigResponsesBySportAndCommunity(sportId, communityId));
+        if (sportId != null) {
+            return ResponseEntity.ok(auctionService.getConfigResponsesBySportAndCommunity(sportId, communityId));
+        }
+        return ResponseEntity.ok(auctionService.getConfigResponsesByCommunity(communityId));
     }
 
     /** GET all configs for the user's community across all sports */
     @GetMapping("/all")
     public ResponseEntity<List<AuctionConfigResponse>> getCommunityConfigs(
             @AuthenticationPrincipal UserPrincipal principal) {
-        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION);
+        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION, VIEW_TEAMS_DASHBOARD, VIEW_PLAYER_POOL, VIEW_EVENT_REGISTRATIONS, VIEW_AUCTION_RESULTS, VIEW_SPORTS_MAIN);
         AppUser loggedInUser = loggedInUserService.resolve(principal);
         Long communityId = loggedInUser.getCommunity() != null ? loggedInUser.getCommunity().getId() : null;
         return ResponseEntity.ok(auctionService.getConfigResponsesByCommunity(communityId));
@@ -56,12 +59,14 @@ public class AuctionConfigController {
     /** GET check if auction config exists for the logged-in user's community */
     @GetMapping("/check")
     public ResponseEntity<Map<String, Object>> checkConfigExists(
-            @RequestParam Long sportId,
+            @RequestParam(required = false) Long sportId,
             @AuthenticationPrincipal UserPrincipal principal) {
-        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION);
+        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION, VIEW_TEAMS_DASHBOARD, VIEW_PLAYER_POOL, VIEW_EVENT_REGISTRATIONS, VIEW_AUCTION_RESULTS, VIEW_SPORTS_MAIN);
         AppUser loggedInUser = loggedInUserService.resolve(principal);
         Long communityId = loggedInUser.getCommunity() != null ? loggedInUser.getCommunity().getId() : null;
-        List<AuctionConfig> configs = auctionService.getConfigsBySportAndCommunity(sportId, communityId);
+        List<AuctionConfig> configs = (sportId != null)
+                ? auctionService.getConfigsBySportAndCommunity(sportId, communityId)
+                : auctionService.getAllConfigsByCommunity(communityId);
         boolean exists = !configs.isEmpty();
         return ResponseEntity.ok(Map.of(
                 "configExists", exists,
@@ -75,7 +80,7 @@ public class AuctionConfigController {
     public ResponseEntity<AuctionConfigResponse> getConfig(
             @PathVariable Long id,
             @AuthenticationPrincipal UserPrincipal principal) {
-        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION);
+        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION, VIEW_TEAMS_DASHBOARD, VIEW_PLAYER_POOL, VIEW_EVENT_REGISTRATIONS, VIEW_AUCTION_RESULTS, VIEW_SPORTS_MAIN);
         AppUser loggedInUser = loggedInUserService.resolve(principal);
         return ResponseEntity.ok(auctionService.getConfigResponse(id));
     }
@@ -85,7 +90,7 @@ public class AuctionConfigController {
     public ResponseEntity<com.manacommunity.sports.dto.AuctionStatsResponse> getStats(
             @PathVariable Long id,
             @AuthenticationPrincipal UserPrincipal principal) {
-        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION);
+        permissionCheckService.requireAnyPermission(principal, VIEW_AUCTION_CONFIG, VIEW_LIVE_AUCTION, VIEW_TEAMS_DASHBOARD, VIEW_PLAYER_POOL, VIEW_EVENT_REGISTRATIONS, VIEW_AUCTION_RESULTS, VIEW_SPORTS_MAIN);
         AppUser loggedInUser = loggedInUserService.resolve(principal);
         return ResponseEntity.ok(auctionService.getAuctionStats(id));
     }

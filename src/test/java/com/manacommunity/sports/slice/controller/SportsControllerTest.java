@@ -10,11 +10,12 @@ import com.manacommunity.sports.service.SportsEventCsvImportService;
 import com.manacommunity.sports.service.SportsEventService;
 import com.manacommunity.sports.service.TournamentService;
 import com.manacommunity.sports.support.BaseWebMvcTest;
+import com.manacommunity.sports.support.TestDataBuilder;
 import com.manacommunity.sports.support.WithMockUserPrincipal;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.security.access.AccessDeniedException;
 
@@ -51,8 +52,10 @@ class SportsControllerTest extends BaseWebMvcTest {
             badminton.setId(1L);
             badminton.setName("Badminton");
 
+            when(loggedInUserService.resolveContext(any()))
+                    .thenReturn(new LoggedInUserService.ResolvedUser(TestDataBuilder.adminUser(), false, 1L));
             doNothing().when(permissionCheckService).requireAnyPermission(any(), any());
-            when(sportMetaRepo.findByActiveTrue()).thenReturn(List.of(badminton));
+            when(sportMetaRepo.findActiveByCommunity(1L)).thenReturn(List.of(badminton));
 
             mockMvc.perform(get("/api/sports/meta"))
                     .andExpect(status().isOk())
@@ -63,8 +66,10 @@ class SportsControllerTest extends BaseWebMvcTest {
         @WithMockUserPrincipal(role = "MEMBER")
         @DisplayName("missing permission returns 403")
         void forbidden_returns403() throws Exception {
+            when(loggedInUserService.resolveContext(any()))
+                    .thenReturn(new LoggedInUserService.ResolvedUser(TestDataBuilder.memberUser(), false, 1L));
             doThrow(new AccessDeniedException("Insufficient permissions"))
-                    .when(permissionCheckService).requireAnyPermission(any(), any());
+                    .when(permissionCheckService).requireAnyPermission(any(), any(), any());
 
             mockMvc.perform(get("/api/sports/meta"))
                     .andExpect(status().isForbidden());
@@ -78,22 +83,24 @@ class SportsControllerTest extends BaseWebMvcTest {
         }
     }
 
-    // ── GET /api/sports/events ────────────────────────────────────────
+    // ── GET /api/sports/events/all ─────────────────────────────────────
 
     @Nested
-    @DisplayName("GET /api/sports/events")
+    @DisplayName("GET /api/sports/events/all")
     class GetEvents {
 
         @Test
         @WithMockUserPrincipal(role = "ADMIN")
         @DisplayName("returns 200 with empty list when no events exist")
         void emptyEvents_returns200() throws Exception {
+            when(loggedInUserService.resolveContext(any()))
+                    .thenReturn(new LoggedInUserService.ResolvedUser(TestDataBuilder.adminUser(), false, 1L));
             doNothing().when(permissionCheckService).requireAnyPermission(any(), any());
-            when(eventService.getAllEvents(any())).thenReturn(org.springframework.data.domain.Page.empty());
+            when(eventService.getCommunityEvents(eq(1L), any())).thenReturn(org.springframework.data.domain.Page.empty());
 
-            mockMvc.perform(get("/api/sports/events"))
+            mockMvc.perform(get("/api/sports/events/all"))
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$").isArray());
+                    .andExpect(jsonPath("$.content").isArray());
         }
     }
 }

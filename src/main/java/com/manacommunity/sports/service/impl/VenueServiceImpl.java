@@ -6,7 +6,7 @@ import com.manacommunity.sports.dto.VenueRequest;
 import com.manacommunity.sports.dto.VenueResponse;
 import com.manacommunity.common.exception.ResourceNotFoundException;
 import com.manacommunity.common.model.Community;
-import com.manacommunity.sports.model.Contact;
+import com.manacommunity.common.model.Contact;
 import com.manacommunity.sports.model.Court;
 import com.manacommunity.sports.model.Venue;
 import com.manacommunity.sports.repository.CommunityRepository;

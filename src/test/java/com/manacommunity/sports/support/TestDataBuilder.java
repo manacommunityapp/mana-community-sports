@@ -1,10 +1,11 @@
 package com.manacommunity.sports.support;
 
-import com.manacommunity.sports.user.dto.LoginRequest;
-import com.manacommunity.sports.user.dto.RegisterRequest;
+import com.manacommunity.common.model.Community;
+import com.manacommunity.common.model.Role;
+import com.manacommunity.common.model.RolePermission;
+import com.manacommunity.common.user.model.AppUser;
 import com.manacommunity.sports.model.*;
 import com.manacommunity.sports.model.scheduler.*;
-import com.manacommunity.sports.user.model.AppUser;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -80,29 +81,7 @@ public final class TestDataBuilder {
                 .build();
     }
 
-    // ── Auth DTOs ─────────────────────────────────────────────────────
 
-    public static RegisterRequest registerRequest() {
-        RegisterRequest req = new RegisterRequest();
-        req.setFullName("John Doe");
-        req.setEmail("john@example.com");
-        req.setPhone("9876543210");
-        req.setPassword("password123");
-        req.setAadharNumber("123456789012");
-        req.setInviteCode("INVITE123");
-        req.setDateOfBirth(LocalDate.of(1995, 6, 15));
-        req.setGender("MALE");
-        req.setFlatNo("A-101");
-        req.setBlock("A");
-        return req;
-    }
-
-    public static LoginRequest loginRequest(String email, String password) {
-        LoginRequest req = new LoginRequest();
-        req.setEmail(email);
-        req.setPassword(password);
-        return req;
-    }
 
     // ── TournamentConfig ──────────────────────────────────────────────
 

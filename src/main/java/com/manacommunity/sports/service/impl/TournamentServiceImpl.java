@@ -1,5 +1,7 @@
 package com.manacommunity.sports.service.impl;
 
+import com.manacommunity.common.model.Contact;
+
 import com.manacommunity.common.enums.*;
 import com.manacommunity.sports.dto.TournamentRequest;
 import com.manacommunity.sports.model.*;

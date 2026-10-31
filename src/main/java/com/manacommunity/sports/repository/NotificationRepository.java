@@ -2,7 +2,7 @@ package com.manacommunity.sports.repository;
 
 import com.manacommunity.common.enums.*;
 import com.manacommunity.common.model.Community;
-import com.manacommunity.sports.model.Notification;
+import com.manacommunity.common.model.Notification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

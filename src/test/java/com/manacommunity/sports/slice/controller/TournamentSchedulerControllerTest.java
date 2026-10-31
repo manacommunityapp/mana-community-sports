@@ -18,7 +18,7 @@ import com.manacommunity.sports.support.WithMockUserPrincipal;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 
@@ -30,7 +30,11 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(TournamentSchedulerController.class)
+import com.manacommunity.sports.config.SecurityConfig;
+import org.springframework.context.annotation.Import;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+
+@WebMvcTest(controllers = TournamentSchedulerController.class)
 @DisplayName("TournamentSchedulerController")
 class TournamentSchedulerControllerTest extends BaseWebMvcTest {
 
@@ -41,6 +45,7 @@ class TournamentSchedulerControllerTest extends BaseWebMvcTest {
     @MockitoBean LoggedInUserService         loggedInUserService;
     @MockitoBean AuctionConfigRepository     auctionConfigRepo;
     @MockitoBean PlayoffScheduleGenerator    playoffGenerator;
+    @MockitoBean com.manacommunity.sports.service.scheduler.MatchResultService matchResultService;
 
     // ── GET /api/tournament/{configId}/matches ────────────────────────
 
@@ -92,6 +97,7 @@ class TournamentSchedulerControllerTest extends BaseWebMvcTest {
             when(schedulerService.saveMatchesBulk(eq(84L), any())).thenReturn(4);
 
             mockMvc.perform(post("/api/tournament/84/matches/bulk")
+                            .with(csrf())
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(toJson(buildRequest(4))))
                     .andExpect(status().isOk())
@@ -104,6 +110,7 @@ class TournamentSchedulerControllerTest extends BaseWebMvcTest {
         @DisplayName("MEMBER role is rejected with 403")
         void member_rejected_403() throws Exception {
             mockMvc.perform(post("/api/tournament/84/matches/bulk")
+                            .with(csrf())
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(toJson(buildRequest(1))))
                     .andExpect(status().isForbidden());
@@ -142,6 +149,7 @@ class TournamentSchedulerControllerTest extends BaseWebMvcTest {
                             "2026-06-20", "09:20 AM", 30, 1L, 1L, false, null)));
 
             mockMvc.perform(post("/api/tournament/playoff/generate")
+                            .with(csrf())
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(toJson(input())))
                     .andExpect(status().isOk())

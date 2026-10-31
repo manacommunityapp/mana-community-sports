@@ -3,7 +3,7 @@ package com.manacommunity.sports.unit.service;
 import com.manacommunity.sports.dto.scheduler.BulkMatchSaveRequest;
 import com.manacommunity.sports.model.scheduler.*;
 import com.manacommunity.sports.repository.AuctionTeamRepository;
-import com.manacommunity.sports.user.repository.AppUserRepository;
+import com.manacommunity.common.user.repository.AppUserRepository;
 import com.manacommunity.sports.repository.CommunityRepository;
 import com.manacommunity.sports.repository.CourtRepository;
 import com.manacommunity.sports.repository.SportMetaRepository;

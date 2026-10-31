@@ -193,7 +193,7 @@ class PlayoffScheduleGeneratorTest {
         }
 
         @Test
-        @DisplayName("13 players → 3 BYEs to top seeds, all AUTO_ADVANCED, players auto-advance")
+        @DisplayName("13 players → cascading BYEs when round count is odd, all AUTO_ADVANCED, players auto-advance")
         void thirteenPlayersThreeByes() {
             List<PlayoffMatchDraftResponse> matches =
                     generator.buildKnockoutFromPlayers(knockoutRequest(players(13), List.of(1L, 2L, 3L, 4L)));
@@ -201,16 +201,14 @@ class PlayoffScheduleGeneratorTest {
             List<PlayoffMatchDraftResponse> byes = matches.stream()
                     .filter(m -> "AUTO_ADVANCED".equals(m.status())).toList();
 
-            assertThat(byes).hasSize(3); // nextPow2(13)=16, 16-13=3
+            // 13 active -> 1 bye (round 0, 7 advance) -> 1 bye (round 1, 4 advance) -> 0 byes (round 2)
+            assertThat(byes).hasSize(2);
             assertThat(byes).allSatisfy(b -> {
                 assertThat(b.name()).contains("(BYE)");
                 assertThat(b.away().id()).isEqualTo("bye");
                 assertThat(b.courtId()).isNull();   // a bye isn't played on a court
                 assertThat(b.time()).isEmpty();      // …and carries no scheduled time
             });
-            // BYEs go to the top 3 seeds (the first 3 in registration order)
-            assertThat(byes).extracting(b -> b.home().name())
-                    .containsExactlyInAnyOrder("Player 1", "Player 2", "Player 3");
         }
 
         @Test

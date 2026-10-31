@@ -5,6 +5,7 @@ import com.manacommunity.common.model.Community;
 import com.manacommunity.sports.dto.NotificationCountResponse;
 import com.manacommunity.sports.dto.NotificationResponse;
 import com.manacommunity.sports.model.*;
+import com.manacommunity.common.model.Notification;
 import com.manacommunity.common.user.repository.AppUserRepository;
 import com.manacommunity.sports.repository.CommunityRepository;
 import com.manacommunity.sports.repository.NotificationRepository;

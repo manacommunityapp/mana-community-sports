@@ -37,6 +37,7 @@ public class SportsEventRequest {
     @Min(2)
     private Integer maxParticipants;
     
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = SportsFormatDeserializer.class)
     private String format;
     private String tournamentType;
     private List<Long> categoryIds;
@@ -73,5 +74,17 @@ public class SportsEventRequest {
     private Boolean adminApprovalRequired;
 
     private Long tournamentId;
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public void setFormat(List<String> formats) {
+        if (formats == null || formats.isEmpty()) {
+            this.format = null;
+        } else {
+            this.format = String.join(",", formats);
+        }
+    }
 }
 
