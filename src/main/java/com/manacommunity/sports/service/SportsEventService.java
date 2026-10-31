@@ -37,6 +37,8 @@ public interface SportsEventService {
     SportsEvent updateEvent(Long eventId, SportsEventRequest req);
     void withdraw(Long registrationId, Long userId);
     List<SportsEventRegistration> getEventRegistrations(Long eventId);
+    List<SportsEventRegistration> getEventRegistrations(Long eventId, boolean latestOnly);
+    List<SportsEventRegistration> getRegistrationHistory(Long eventId, Long registrationId);
     List<SportsEventRegistration> getUserRegistrations(Long userId);
     SportsEventRegistration confirmRegistration(Long registrationId);
     SportsEventRegistration rejectRegistration(Long registrationId, String reason);

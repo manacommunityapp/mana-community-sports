@@ -32,7 +32,7 @@ import java.time.Period;
 import java.util.List;
 
 import com.manacommunity.sports.repository.ContactRepository;
-import com.manacommunity.sports.model.Contact;
+import com.manacommunity.common.model.Contact;
 import com.manacommunity.sports.dto.ContactDto;
 
 @Slf4j
@@ -274,9 +274,90 @@ public class SportsEventServiceImpl implements SportsEventService {
 
     @Override
     public List<SportsEventRegistration> getEventRegistrations(Long eventId) {
+        return getEventRegistrations(eventId, false);
+    }
+
+    @Override
+    public List<SportsEventRegistration> getEventRegistrations(Long eventId, boolean latestOnly) {
         List<SportsEventRegistration> regs = regRepo.findByEventId(eventId);
         hydrateCaptaincy(regs, eventId);
-        return regs;
+        if (!latestOnly || regs == null || regs.isEmpty()) {
+            return regs;
+        }
+
+        java.util.Map<String, SportsEventRegistration> latestMap = new java.util.LinkedHashMap<>();
+        for (SportsEventRegistration reg : regs) {
+            String pKey = getParticipantIdentityKey(reg);
+            SportsEventRegistration existing = latestMap.get(pKey);
+            if (existing == null || compareRegistrationPrecedence(reg, existing) > 0) {
+                latestMap.put(pKey, reg);
+            }
+        }
+        return new java.util.ArrayList<>(latestMap.values());
+    }
+
+    @Override
+    public List<SportsEventRegistration> getRegistrationHistory(Long eventId, Long registrationId) {
+        SportsEventRegistration target = regRepo.findById(registrationId)
+                .orElseThrow(() -> new ResourceNotFoundException("SportsEventRegistration", registrationId));
+
+        List<SportsEventRegistration> allEventRegs = regRepo.findByEventId(eventId);
+        String targetKey = getParticipantIdentityKey(target);
+
+        List<SportsEventRegistration> history = allEventRegs.stream()
+                .filter(r -> !r.getId().equals(registrationId))
+                .filter(r -> getParticipantIdentityKey(r).equals(targetKey))
+                .sorted((a, b) -> {
+                    java.time.LocalDateTime ta = a.getRegisteredAt() != null ? a.getRegisteredAt() : java.time.LocalDateTime.MIN;
+                    java.time.LocalDateTime tb = b.getRegisteredAt() != null ? b.getRegisteredAt() : java.time.LocalDateTime.MIN;
+                    int cmp = tb.compareTo(ta);
+                    if (cmp != 0) return cmp;
+                    return Long.compare(b.getId() != null ? b.getId() : 0, a.getId() != null ? a.getId() : 0);
+                })
+                .toList();
+        hydrateCaptaincy(history, eventId);
+        return history;
+    }
+
+    private static String getParticipantIdentityKey(SportsEventRegistration reg) {
+        String pName = reg.getPlayerName() != null ? reg.getPlayerName().trim().toLowerCase() : "";
+        String rel = reg.getRelation() != null ? reg.getRelation().trim().toLowerCase() : "";
+        String flat = reg.getFlatNumber() != null ? reg.getFlatNumber().trim().toLowerCase() : "";
+
+        if (reg.getUser() != null && reg.getUser().getId() != null) {
+            String sub = !pName.isEmpty() ? pName : (!rel.isEmpty() ? rel : "self");
+            return "u_" + reg.getUser().getId() + "_" + sub;
+        }
+        if (!flat.isEmpty() && !pName.isEmpty()) {
+            return "f_" + flat + "_" + pName;
+        }
+        return !pName.isEmpty() ? "n_" + pName : "id_" + reg.getId();
+    }
+
+    private static int compareRegistrationPrecedence(SportsEventRegistration a, SportsEventRegistration b) {
+        int wa = getStatusWeight(a.getStatus());
+        int wb = getStatusWeight(b.getStatus());
+        if (wa != wb) {
+            return Integer.compare(wa, wb);
+        }
+        java.time.LocalDateTime ta = a.getRegisteredAt() != null ? a.getRegisteredAt() : java.time.LocalDateTime.MIN;
+        java.time.LocalDateTime tb = b.getRegisteredAt() != null ? b.getRegisteredAt() : java.time.LocalDateTime.MIN;
+        int timeCmp = ta.compareTo(tb);
+        if (timeCmp != 0) {
+            return timeCmp;
+        }
+        return Long.compare(a.getId() != null ? a.getId() : 0, b.getId() != null ? b.getId() : 0);
+    }
+
+    private static int getStatusWeight(SportsEventRegistration.RegistrationStatus status) {
+        if (status == null) return -1;
+        return switch (status) {
+            case CONFIRMED -> 4;
+            case REGISTERED -> 3;
+            case PENDING -> 2;
+            case WITHDRAWN -> 1;
+            case REJECTED -> 0;
+        };
     }
 
     @Override

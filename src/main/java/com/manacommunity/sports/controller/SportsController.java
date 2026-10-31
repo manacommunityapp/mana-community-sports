@@ -370,9 +370,23 @@ public class SportsController {
     @GetMapping({"/events/{eventId}/registrations", "/tournaments/{eventId}/registrations"})
     public ResponseEntity<List<SportsRegistrationResponse>> getTournamentRegistrations(
             @PathVariable Long eventId,
+            @RequestParam(required = false, defaultValue = "false") boolean latestOnly,
             @AuthenticationPrincipal UserPrincipal principal) {
         permissionCheckService.requireAnyPermission(principal, VIEW_EVENT_REGISTRATIONS);
-        return ResponseEntity.ok(eventService.getEventRegistrations(eventId).stream()
+        List<SportsEventRegistration> regs = latestOnly
+                ? eventService.getEventRegistrations(eventId, true)
+                : eventService.getEventRegistrations(eventId);
+        return ResponseEntity.ok(regs.stream()
+                .map(this::toRegistrationResponse).toList());
+    }
+
+    @GetMapping({"/events/{eventId}/registrations/{registrationId}/history", "/tournaments/{eventId}/registrations/{registrationId}/history"})
+    public ResponseEntity<List<SportsRegistrationResponse>> getRegistrationHistory(
+            @PathVariable Long eventId,
+            @PathVariable Long registrationId,
+            @AuthenticationPrincipal UserPrincipal principal) {
+        permissionCheckService.requireAnyPermission(principal, VIEW_EVENT_REGISTRATIONS);
+        return ResponseEntity.ok(eventService.getRegistrationHistory(eventId, registrationId).stream()
                 .map(this::toRegistrationResponse).toList());
     }
 
